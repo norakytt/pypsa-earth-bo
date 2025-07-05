@@ -101,9 +101,9 @@ clean_osm_data_options:  # osm = OpenStreetMap
   add_line_endings: true  # When "True", then line endings are added to the dataset of the substations
   generator_name_method: OSM  # Methodology to specify the name to the generator. Options: OSM (name as by OSM dataset), closest_city (name by the closest city)
   use_custom_lines: "custom_only"  # Use OSM (OSM_only), customized (custom_only), or both data sets (add_custom)
-  path_custom_lines: 'C:/Users/noraky/Documents/Masteroppgave/pypsa-earth/custom_files/custom_lines1.geojson'  # If exists, provide the specific absolute path of the custom file e.g. (...\data\custom_lines.geojson)
+  path_custom_lines: 'custom_files/custom_lines1.geojson'  # If exists, provide the specific absolute path of the custom file e.g. (...\data\custom_lines.geojson)
   use_custom_substations: "custom_only"  # Use OSM (OSM_only), customized (custom_only), or both data sets (add_custom)
-  path_custom_substations: 'C:/Users/noraky/Documents/Masteroppgave/pypsa-earth/custom_files/custom_substations1.geojson'  # If exists, provide the specific absolute path of the custom file e.g. (...\data\custom_substations.geojson)
+  path_custom_substations: 'custom_files/custom_substations1.geojson'  # If exists, provide the specific absolute path of the custom file e.g. (...\data\custom_substations.geojson)
   use_custom_cables: "OSM_only"  # Use OSM (OSM_only), customized (custom_only), or both data sets (add_custom)
   path_custom_cables: false  # If exists, provide the specific absolute path of the custom file e.g. (...\data\custom_cables.geojson)
 
