@@ -488,6 +488,10 @@ def new_capacity_constraint(n):
     ocgt_i = n.generators.query("carrier == 'OCGT'").index
     oil_i = n.generators.query("carrier == 'oil'").index
     all_i = solar_i.append([onwind_i, biomass_i, ror_i, geothermal_i, ccgt_i, ocgt_i, oil_i])
+
+    #print(get_var(n, "Generator", "p_nom").index)  # Likely to be strings like '0 solar', '1 onwind'...
+    #print(all_i)  # Likely integers like 0, 1, 2, ...
+
     p_nom_current = get_var(n, "Generator", "p_nom")[all_i]
     #p_nom_storage = get_var(n, "StorageUnit", "p_store")[hydro_i]
     lhs = linexpr((1,p_nom_current)).sum()
@@ -540,13 +544,19 @@ def new_geothermal_total_capacity_constraint(n):
 
     
 def apply_cp_constraints_bio(n):
-    cp = -0.72
+    cp = 0.72
     carrier = 'biomass'
+    hours_in_year = -1
     gen_indices = n.generators.query(f"carrier == '{carrier}'").index
-    for i in gen_indices:
-        lhs = linexpr((1, get_var(n, "Generator", "p").loc[:, i]), (cp,get_var(n, "Generator", "p_nom").loc[i])).sum()
-        rhs = 0
-        define_constraints(n, lhs, "<=", rhs, carrier, "cp_constraint")
+    coeff = hours_in_year * cp
+    lhs = linexpr((1, get_var(n, "Generator", "p").loc[n.snapshots[:], gen_indices]), (coeff, get_var(n, "Generator", "p_nom")[gen_indices])).sum()
+    rhs = 0
+    define_constraints(n, lhs, "<=", rhs, carrier, "cp_constraint")
+    # gen_indices = n.generators.query(f"carrier == '{carrier}'").index
+    # for i in gen_indices:
+    #     lhs = linexpr((1, get_var(n, "Generator", "p").loc[:, i]), (cp,get_var(n, "Generator", "p_nom").loc[i])).sum()
+    #     rhs = 0
+    #     define_constraints(n, lhs, "<=", rhs, carrier, "cp_constraint")
 
 def apply_cp_constraints_bio_monte_carlo(n):
     cp = 0.72
@@ -690,20 +700,20 @@ def extra_functionality(n, snapshots):
             add_EQ_constraints(n, o)
 
     add_battery_constraints(n)
-    #new_capacity_constraint(n)
-    #new_geothermal_capacity_constraint(n)
-    #new_battery_capaity_constraint(n)
-    #new_battery_storage_constraint(n)
-    #new_biomass_total_capacity_constraint(n)
-    #new_geothermal_total_capacity_constraint(n)
-    #apply_cp_constraints_bio(n)
+    new_capacity_constraint(n)
+    new_geothermal_capacity_constraint(n)
+    new_battery_capaity_constraint(n)
+    new_battery_storage_constraint(n)
+    new_biomass_total_capacity_constraint(n)
+    new_geothermal_total_capacity_constraint(n)
+    apply_cp_constraints_bio(n)
     #apply_cp_constraints_CCGT(n)
     #apply_cp_constraints_OCGT(n)
     #apply_cp_constraints_geo(n)
     #apply_cp_constraints_ror_ext(n)
     #apply_cp_constraints_hydro_fix(n)
     #apply_cp_constraints_ror_fix(n)
-    apply_cp_constraints_bio_monte_carlo(n)
+    #apply_cp_constraints_bio_monte_carlo(n)
     # reliability_constraint_line(n,line_matrix)
     # reliability_constraint(n, generator_matrix)
     # reliability_constraint_storage(n, storage_unit_matrix)

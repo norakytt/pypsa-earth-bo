@@ -43,6 +43,19 @@ configs/scenarios/config.*.yaml
 !configs/scenarios/config.NG.yaml
 dask-worker-space/
 network_bnze_2040/
+base_nze/
+sudden/
+sudden_0.07/
+csa_results/
+csa_results_em/
+diverse/
+figures/
+logs/
+networks_old/
+result_data/
+analysis_montecarlo/
+logs/
+
 
 # Untrack some Jupyter changes
 .ipynb_checkpoints

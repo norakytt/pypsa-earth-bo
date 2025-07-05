@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import subprocess
-import hydro_extendable as hyd
+#import hydro_extendable as hyd
 import math
 
 
@@ -229,7 +229,7 @@ def yearly_changes(n,year):
     n.loads_t.p_set = n.loads_t.p_set * upscaling_factor
 
     # ------- EMISSIONS -------
-    # n.global_constraints.constant = emission_limit[year]
+    n.global_constraints.constant = emission_limit[year]
     #display(n.global_constraints.constant)
 
     #-------- COSTS ---------
@@ -363,8 +363,8 @@ def rename_results_file(year):
 
 
 
-scen_folder = 'base'
-scen = 'B'
+scen_folder = 'base_nze'
+scen = 'BNZE'
 
 
 for year in range(2024, 2041):
