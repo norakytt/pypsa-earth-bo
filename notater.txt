@@ -1,0 +1,58 @@
+# Project Change Log
+
+## Change of cost.csv-file
+
+Dersom vi skal endre cost.csv-filen så tilsier det at følgende "jobs" utføres på nytt:
+INFO:snakemake.logging:
+Job stats:
+job                     count
+--------------------  -------
+add_electricity             1
+add_extra_components        1
+cluster_network             1
+prepare_network             1
+simplify_network            1
+solve_all_networks          1
+solve_network               1
+total                       7
+
+Hvordan skal vi da kunne opprettholde den samme nettverksfila vår?
+
+Lagret en kopi av den "originale" costs filen i data\costs – Kopi.csv
+
+
+# TEMPLATE FOR INSPIRATION
+## [Date: YYYY-MM-DD]
+### Added
+- [Describe new features, files, or functionality added]
+
+### Changed
+- [Describe updates, modifications, or refactoring]
+
+### Fixed
+- [Describe bugs or issues fixed]
+
+### Removed
+- [Describe features, files, or code removed]
+
+---
+
+## [Date: YYYY-MM-DD]
+### Added
+- 
+
+### Changed
+- 
+
+### Fixed
+- 
+
+### Removed
+- 
+
+---
+
+# Instructions
+- Use this template for each update.
+- Keep entries concise and clear.
+- List changes chronologically (latest at the top).

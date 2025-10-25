@@ -24,6 +24,7 @@ for idx, row in lines_cap.iterrows():
     if math.isfinite(row["capacity"]):
         n.lines.at[idx, 's_nom'] = row['capacity'] * power_factor
         n.lines.at[idx, 's_nom_min'] = n.lines.at[idx, 's_nom']
+        n.lines.at[idx, 's_nom_max'] = 1e5
 
 n.export_to_netcdf('networks/elec_s_all_ec_lcopt_Co2L-1H.nc')
 
@@ -53,106 +54,212 @@ scale_cost_sudden = {
     ('OCGT', 2025): 1.0,
     ('OCGT', 2026): 1.0,
     ('OCGT', 2027): 0.20,
-    ('OCGT', 2028): 1.0,
-    ('OCGT', 2029): 1.0,
-    ('OCGT', 2030): 1.0,
-    ('OCGT', 2031): 1.0,
-    ('OCGT', 2032): 1.0,
-    ('OCGT', 2033): 1.0,
-    ('OCGT', 2034): 1.0,
-    ('OCGT', 2035): 1.0,
-    ('OCGT', 2036): 1.0,
-    ('OCGT', 2037): 1.0,
-    ('OCGT', 2038): 1.0,
-    ('OCGT', 2039): 1.0,
-    ('OCGT', 2040): 1.0,
+    ('OCGT', 2028): 0.20,
+    ('OCGT', 2029): 0.20,
+    ('OCGT', 2030): 0.20,
+    ('OCGT', 2031): 0.20,
+    ('OCGT', 2032): 0.20,
+    ('OCGT', 2033): 0.20,
+    ('OCGT', 2034): 0.20,
+    ('OCGT', 2035): 0.20,
+    ('OCGT', 2036): 0.20,
+    ('OCGT', 2037): 0.20,
+    ('OCGT', 2038): 0.20,
+    ('OCGT', 2039): 0.20,
+    ('OCGT', 2040): 0.20,
 
     ('CCGT', 2025): 1.0,
     ('CCGT', 2026): 1.0,
-    ('CCGT', 2027): 0.22,
-    ('CCGT', 2028): 1.0,
-    ('CCGT', 2029): 1.0,
-    ('CCGT', 2030): 1.0,
-    ('CCGT', 2031): 1.0,
-    ('CCGT', 2032): 1.0,
-    ('CCGT', 2033): 1.0,
-    ('CCGT', 2034): 1.0,
-    ('CCGT', 2035): 1.0,
-    ('CCGT', 2036): 1.0,
-    ('CCGT', 2037): 1.0,
-    ('CCGT', 2038): 1.0,
-    ('CCGT', 2039): 1.0,
-    ('CCGT', 2040): 1.0,
+    ('CCGT', 2027): 0.20,
+    ('CCGT', 2028): 0.20,
+    ('CCGT', 2029): 0.20,
+    ('CCGT', 2030): 0.20,
+    ('CCGT', 2031): 0.20,
+    ('CCGT', 2032): 0.20,
+    ('CCGT', 2033): 0.20,
+    ('CCGT', 2034): 0.20,
+    ('CCGT', 2035): 0.20,
+    ('CCGT', 2036): 0.20,
+    ('CCGT', 2037): 0.20,
+    ('CCGT', 2038): 0.20,
+    ('CCGT', 2039): 0.20,
+    ('CCGT', 2040): 0.20,
 
     ('oil', 2025): 1.0,
     ('oil', 2026): 1.0,
     ('oil', 2027): 0.29,
-    ('oil', 2028): 1.0,
-    ('oil', 2029): 1.0,
-    ('oil', 2030): 1.0,
-    ('oil', 2031): 1.0,
-    ('oil', 2032): 1.0,
-    ('oil', 2033): 1.0,
-    ('oil', 2034): 1.0,
-    ('oil', 2035): 1.0,
-    ('oil', 2036): 1.0,
-    ('oil', 2037): 1.0,
-    ('oil', 2038): 1.0,
-    ('oil', 2039): 1.0,
-    ('oil', 2040): 1.0,
+    ('oil', 2028): 0.29,
+    ('oil', 2029): 0.29,
+    ('oil', 2030): 0.29,
+    ('oil', 2031): 0.29,
+    ('oil', 2032): 0.29,
+    ('oil', 2033): 0.29,
+    ('oil', 2034): 0.29,
+    ('oil', 2035): 0.29,
+    ('oil', 2036): 0.29,
+    ('oil', 2037): 0.29,
+    ('oil', 2038): 0.29,
+    ('oil', 2039): 0.29,
+    ('oil', 2040): 0.29,
 }
 
 scale_cost_gradual = {
-    ('OCGT', 2025): 0.81,
-    ('OCGT', 2026): 0.84,
-    ('OCGT', 2027): 0.86,
-    ('OCGT', 2028): 0.88,
-    ('OCGT', 2029): 0.89,
-    ('OCGT', 2030): 0.90,
-    ('OCGT', 2031): 0.91,
-    ('OCGT', 2032): 0.92,
-    ('OCGT', 2033): 0.92,
-    ('OCGT', 2034): 0.93,
-    ('OCGT', 2035): 0.93,
-    ('OCGT', 2036): 0.94,
-    ('OCGT', 2037): 0.94,
-    ('OCGT', 2038): 0.95,
-    ('OCGT', 2039): 1,
-    ('OCGT', 2040): 1,
+    ('OCGT', 2025): 0.79,
+    ('OCGT', 2026): 0.65,
+    ('OCGT', 2027): 0.55,
+    ('OCGT', 2028): 0.48,
+    ('OCGT', 2029): 0.43,
+    ('OCGT', 2030): 0.38,
+    ('OCGT', 2031): 0.35,
+    ('OCGT', 2032): 0.32,
+    ('OCGT', 2033): 0.29,
+    ('OCGT', 2034): 0.27,
+    ('OCGT', 2035): 0.25,
+    ('OCGT', 2036): 0.24,
+    ('OCGT', 2037): 0.22,
+    ('OCGT', 2038): 0.21,
+    ('OCGT', 2039): 0.20,
+    ('OCGT', 2040): 0.20,
 
-    ('CCGT', 2025): 0.83,
-    ('CCGT', 2026): 0.85,
-    ('CCGT', 2027): 0.87,
-    ('CCGT', 2028): 0.89,
-    ('CCGT', 2029): 0.90,
-    ('CCGT', 2030): 0.91,
-    ('CCGT', 2031): 0.92,
-    ('CCGT', 2032): 0.92,
-    ('CCGT', 2033): 0.93,
-    ('CCGT', 2034): 0.93,
-    ('CCGT', 2035): 0.94,
-    ('CCGT', 2036): 0.94,
-    ('CCGT', 2037): 0.94,
-    ('CCGT', 2038): 0.95,
-    ('CCGT', 2039): 1,
-    ('CCGT', 2040): 1,
+    ('CCGT', 2025): 0.79,
+    ('CCGT', 2026): 0.65,
+    ('CCGT', 2027): 0.55,
+    ('CCGT', 2028): 0.48,
+    ('CCGT', 2029): 0.43,
+    ('CCGT', 2030): 0.38,
+    ('CCGT', 2031): 0.35,
+    ('CCGT', 2032): 0.32,
+    ('CCGT', 2033): 0.29,
+    ('CCGT', 2034): 0.27,
+    ('CCGT', 2035): 0.25,
+    ('CCGT', 2036): 0.24,
+    ('CCGT', 2037): 0.22,
+    ('CCGT', 2038): 0.21,
+    ('CCGT', 2039): 0.20,
+    ('CCGT', 2040): 0.20,
 
-    ('oil', 2025): 0.858,
-    ('oil', 2026): 0.876,
-    ('oil', 2027): 0.890,
-    ('oil', 2028): 0.901,
-    ('oil', 2029): 0.910,
-    ('oil', 2030): 0.917,
-    ('oil', 2031): 0.923,
-    ('oil', 2032): 0.929,
-    ('oil', 2033): 0.934,
-    ('oil', 2034): 0.938,
-    ('oil', 2035): 0.941,
-    ('oil', 2036): 0.945,
-    ('oil', 2037): 0.948,
-    ('oil', 2038): 0.950,
-    ('oil', 2039): 1,
-    ('oil', 2040): 1,
+    ('oil', 2025): 0.86,
+    ('oil', 2026): 0.75,
+    ('oil', 2027): 0.67,
+    ('oil', 2028): 0.60,
+    ('oil', 2029): 0.55,
+    ('oil', 2030): 0.50,
+    ('oil', 2031): 0.46,
+    ('oil', 2032): 0.43,
+    ('oil', 2033): 0.40,
+    ('oil', 2034): 0.37,
+    ('oil', 2035): 0.35,
+    ('oil', 2036): 0.33,
+    ('oil', 2037): 0.32,
+    ('oil', 2038): 0.30,
+    ('oil', 2039): 0.29,
+    ('oil', 2040): 0.29,
+}
+
+scale_cost_sudden_4 = {
+    ('OCGT', 2025): 1.0,
+    ('OCGT', 2026): 1.0,
+    ('OCGT', 2027): 0.14,
+    ('OCGT', 2028): 0.13,
+    ('OCGT', 2029): 0.13,
+    ('OCGT', 2030): 0.11,
+    ('OCGT', 2031): 0.11,
+    ('OCGT', 2032): 0.11,
+    ('OCGT', 2033): 0.11,
+    ('OCGT', 2034): 0.11,
+    ('OCGT', 2035): 0.10,
+    ('OCGT', 2036): 0.10,
+    ('OCGT', 2037): 0.10,
+    ('OCGT', 2038): 0.10,
+    ('OCGT', 2039): 0.10,
+    ('OCGT', 2040): 0.10,
+
+    ('CCGT', 2025): 1.0,
+    ('CCGT', 2026): 1.0,
+    ('CCGT', 2027): 0.14,
+    ('CCGT', 2028): 0.13,
+    ('CCGT', 2029): 0.13,
+    ('CCGT', 2030): 0.11,
+    ('CCGT', 2031): 0.11,
+    ('CCGT', 2032): 0.11,
+    ('CCGT', 2033): 0.11,
+    ('CCGT', 2034): 0.11,
+    ('CCGT', 2035): 0.10,
+    ('CCGT', 2036): 0.10,
+    ('CCGT', 2037): 0.10,
+    ('CCGT', 2038): 0.10,
+    ('CCGT', 2039): 0.10,
+    ('CCGT', 2040): 0.10,
+
+    ('oil', 2025): 1.0,
+    ('oil', 2026): 1.0,
+    ('oil', 2027): 0.29,
+    ('oil', 2028): 0.29,
+    ('oil', 2029): 0.29,
+    ('oil', 2030): 0.29,
+    ('oil', 2031): 0.29,
+    ('oil', 2032): 0.29,
+    ('oil', 2033): 0.29,
+    ('oil', 2034): 0.29,
+    ('oil', 2035): 0.29,
+    ('oil', 2036): 0.29,
+    ('oil', 2037): 0.29,
+    ('oil', 2038): 0.29,
+    ('oil', 2039): 0.29,
+    ('oil', 2040): 0.29,
+}
+
+scale_cost_sudden_1 = {
+    ('OCGT', 2025): 1.0,
+    ('OCGT', 2026): 1.0,
+    ('OCGT', 2027): 0.23,
+    ('OCGT', 2028): 0.23,
+    ('OCGT', 2029): 0.23,
+    ('OCGT', 2030): 0.22,
+    ('OCGT', 2031): 0.22,
+    ('OCGT', 2032): 0.22,
+    ('OCGT', 2033): 0.22,
+    ('OCGT', 2034): 0.22,
+    ('OCGT', 2035): 0.22,
+    ('OCGT', 2036): 0.22,
+    ('OCGT', 2037): 0.22,
+    ('OCGT', 2038): 0.22,
+    ('OCGT', 2039): 0.22,
+    ('OCGT', 2040): 0.22,
+
+    ('CCGT', 2025): 1.0,
+    ('CCGT', 2026): 1.0,
+    ('CCGT', 2027): 0.23,
+    ('CCGT', 2028): 0.23,
+    ('CCGT', 2029): 0.23,
+    ('CCGT', 2030): 0.22,
+    ('CCGT', 2031): 0.22,
+    ('CCGT', 2032): 0.22,
+    ('CCGT', 2033): 0.22,
+    ('CCGT', 2034): 0.22,
+    ('CCGT', 2035): 0.22,
+    ('CCGT', 2036): 0.22,
+    ('CCGT', 2037): 0.22,
+    ('CCGT', 2038): 0.22,
+    ('CCGT', 2039): 0.22,
+    ('CCGT', 2040): 0.22,
+
+    ('oil', 2025): 1.0,
+    ('oil', 2026): 1.0,
+    ('oil', 2027): 0.29,
+    ('oil', 2028): 0.29,
+    ('oil', 2029): 0.29,
+    ('oil', 2030): 0.29,
+    ('oil', 2031): 0.29,
+    ('oil', 2032): 0.29,
+    ('oil', 2033): 0.29,
+    ('oil', 2034): 0.29,
+    ('oil', 2035): 0.29,
+    ('oil', 2036): 0.29,
+    ('oil', 2037): 0.29,
+    ('oil', 2038): 0.29,
+    ('oil', 2039): 0.29,
+    ('oil', 2040): 0.29,
 }
 
 decom = {
@@ -219,6 +326,22 @@ def read_network_file():
     n = pypsa.Network(network)
     return n
    
+def cost_parameters(tech):
+    costs = pd.read_csv('data/costs.csv')
+    costs_pivot = costs.pivot(index='technology', columns='parameter', values='value')
+    costs_pivot['fuel'].fillna(0, inplace=True)
+    costs_pivot['VOM'].fillna(0, inplace=True)
+    costs_pivot['efficiency'].fillna(1, inplace=True)
+
+    if tech == 'OCGT' or tech == 'CCGT':
+        fuel = costs_pivot.at['gas', 'fuel']
+    else:
+        fuel = costs_pivot.at[tech, 'fuel']
+   
+    VOM = costs_pivot.at[tech, 'VOM']
+    efficiency = costs_pivot.at[tech, 'efficiency']
+
+    return VOM, fuel, efficiency
 
 # Function that implements 4 yearly changes
 
@@ -229,16 +352,19 @@ def yearly_changes(n,year):
     n.loads_t.p_set = n.loads_t.p_set * upscaling_factor
 
     # ------- EMISSIONS -------
-    n.global_constraints.constant = emission_limit[year]
+    #n.global_constraints.constant = emission_limit[year]
     #display(n.global_constraints.constant)
 
     #-------- COSTS ---------
-    # indexes = {}
-    # for car in ['OCGT', 'CCGT', 'oil']:
-    #     mask = n.generators['carrier'] == car
-    #     indexes[car] = n.generators.index[mask].tolist()
-    # for car in indexes:
-    #     n.generators.loc[indexes[car], 'marginal_cost'] = n.generators.loc[indexes[car], 'marginal_cost'] / scale_cost_gradual[(car, year)]
+    indexes = {}
+    for car in ['OCGT', 'CCGT', 'oil']:
+        mask = n.generators['carrier'] == car
+        indexes[car] = n.generators.index[mask].tolist()
+    for car in indexes:
+        #n.generators.loc[indexes[car], 'marginal_cost'] = n.generators.loc[indexes[car], 'marginal_cost'] / scale_cost_sudden[(car, year)]
+        VOM, fuel, efficiency = cost_parameters(car)
+        scaled_fuel = fuel / scale_cost_sudden_4[(car, year)]    
+        n.generators.loc[indexes[car], 'marginal_cost'] = VOM + (scaled_fuel / efficiency)
 
     # ------- GENERATOR EXTENSTION -----
     solved_network = f'{scen_folder}/{scen}_{year-1}.nc'
@@ -296,8 +422,8 @@ def extend_hydro_old(n):
         bus = '83',
         carrier = 'ror',
         p_nom = 0,
-        marginal_cost = 0.0103746318,
-        capital_cost = 270940.715282615,
+        marginal_cost = 0.01037,
+        capital_cost = 185442.22646291394, #270940.715282615,
         efficiency = 0.9,
         p_nom_extendable = True,
         p_nom_max = 85
@@ -308,8 +434,8 @@ def extend_hydro_old(n):
         bus = '83',
         carrier = 'ror',
         p_nom = 0,
-        marginal_cost = 0.0103746318,
-        capital_cost = 270940.715282615,
+        marginal_cost = 0.01037,
+        capital_cost = 185442.22646291394, #270940.715282615,
         efficiency = 0.9,
         p_nom_extendable = True,
         p_nom_max = 118
@@ -320,8 +446,8 @@ def extend_hydro_old(n):
         bus = '37',
         carrier = 'ror',
         p_nom = 0,
-        marginal_cost = 0.0103746318,
-        capital_cost = 270940.715282615,
+        marginal_cost = 0.01037,
+        capital_cost = 185442.22646291394, #270940.715282615,
         efficiency = 0.9,
         p_nom_extendable = True,
         p_nom_max = 89.73
@@ -332,8 +458,8 @@ def extend_hydro_old(n):
         bus = '37',
         carrier = 'hydro',
         p_nom = 0,
-        marginal_cost = 0.0106120929,
-        capital_cost = 270940.715282615,
+        marginal_cost = 0.01061,
+        capital_cost = 270940.71528,
         efficiency_dispatch = 0.9,
         p_nom_extendable = True,
         p_nom_max = 194.63,
@@ -345,6 +471,7 @@ def extend_hydro_old(n):
     
 def save_network_file(n):
     n.export_to_netcdf('networks/elec_s_all_ec_lcopt_Co2L-1H.nc')
+    n.export_to_netcdf(f'{scen_folder}/' + scen + f'_{year}_network.nc')
 
 # Function that renames the results file and moves it to the scenario folder
 
@@ -363,8 +490,9 @@ def rename_results_file(year):
 
 
 
-scen_folder = 'base_nze'
-scen = 'BNZE'
+
+scen_folder = 'sudden_4'
+scen = 'S'
 
 
 for year in range(2024, 2041):

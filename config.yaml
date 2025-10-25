@@ -174,7 +174,7 @@ lines:
     230.: "Al/St 240/40 2-bundle 220.0" # 380.: "Al/St 240/40 4-bundle 380.0"
   dc_type: "HVDC XLPE 1000"
   s_max_pu: 0.7
-  s_nom_max: .inf
+  s_nom_max: 1000 # changed from .inf
   length_factor: 1.25
   under_construction: "zero" # 'zero': set capacity to zero, 'remove': remove, 'keep': with full capacity
 
@@ -324,10 +324,10 @@ costs:
     investment: 0
     lifetime: 25
     CO2 intensity: 0
-    discount rate: 0.04 # 0.07
+    discount rate: 0.04
   marginal_cost: # EUR/MWh
-    solar: 0.01
-    onwind: 0.015
+    #solar: 0.01
+    #onwind: 0.015
     # offwind: 0.015
     hydro: 0.
     H2: 0.
@@ -393,6 +393,7 @@ solving:
     crossover: 0
     BarConvTol: 1.e-5
     FeasibilityTol: 1.e-4
+    BarHomogeneous: 1
     AggFill: 0
     PreDual: 0
     GURO_PAR_BARDENSETHRESH: 200

@@ -110,7 +110,7 @@ def prepare_network(n, solve_opts):
         n.add("Carrier", "Load")
         buses_i = n.buses.query("carrier == 'AC'").index
         if not np.isscalar(load_shedding):
-            load_shedding = 22 #8e3  # Eur/kWh
+            load_shedding = 8e3 #22 #8e3  # Eur/kWh
         # intersect between macroeconomic and surveybased
         # willingness to pay
         # http://journal.frontiersin.org/article/10.3389/fenrg.2015.00055/full)
@@ -122,7 +122,7 @@ def prepare_network(n, solve_opts):
             bus=buses_i,
             carrier="load",
             sign=1e-3,  # Adjust sign to measure p and p_nom in kW instead of MW
-            marginal_cost=22,
+            marginal_cost= 1e2, # Eur/kWh
             p_nom=1e9,  # kW
         )
 
@@ -558,6 +558,14 @@ def apply_cp_constraints_bio(n):
     #     rhs = 0
     #     define_constraints(n, lhs, "<=", rhs, carrier, "cp_constraint")
 
+def line_capacity_constraint(n):
+    # limit s_nom to 10000 MW per line
+    line_i = n.lines.index
+    for i in line_i:
+        lhs = linexpr((1, get_var(n, "Line", "s_nom").loc[i]))
+        rhs = 1e+04
+        define_constraints(n, lhs, "<=", rhs, "Line", "line_capacity_constraint")
+
 def apply_cp_constraints_bio_monte_carlo(n):
     cp = 0.72
     carrier = 'biomass'
@@ -707,6 +715,7 @@ def extra_functionality(n, snapshots):
     new_biomass_total_capacity_constraint(n)
     new_geothermal_total_capacity_constraint(n)
     apply_cp_constraints_bio(n)
+    #line_capacity_constraint(n)
     #apply_cp_constraints_CCGT(n)
     #apply_cp_constraints_OCGT(n)
     #apply_cp_constraints_geo(n)
