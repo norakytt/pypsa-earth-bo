@@ -112,11 +112,11 @@ A complete run of the snakemake workflow will overwrite most of these files. Aft
 
 Build initial network by following the PyPSA-Earth documentation.
 
-By cloning this repository, all data is available - but you need to replace the files as described in custom files.
+By cloning this repository, the custom files are available - but you need to replace the files as described in the table above.
 
-Changes in the config.yaml-file and the model should remain as in this repository.
+Changes to the config.yaml-file and the model compared to PyPSA-Earth v.0.3.0 should remain as in this repository.
 
-Before generating a new network, ensure that the `networks/` folder is cleared. PyPSA‑Earth regenerates all required files during the `solve_all_networks` step.
+Before each scenario run, ensure that the `networks/` folder is cleared. PyPSA‑Earth regenerates all required files through the snakemake workflow.
 
 Then run:
 
@@ -124,11 +124,11 @@ Then run:
 snakemake -j1 solve_all_networks
 ```
 
-The to generate results the run scripts need a complete network file `networks/elec_s_all_ec_lcopt_Co2L-1H.nc` (all nodes scenarios) or `networks/elec_s_4_ec_lcopt_Co2L-1H.nc` (4 nodes scenario) to run.
-
 ## 6) Main Scenario Runs
 
 After the a successful installation and configuration of PyPSA-Earth-BO, you are ready to run the different scenarios. These are ready to run, and the results will appear after the run in their respective results folders as described in the run scripts.
+
+To generate results the run scripts need a complete network file `networks/elec_s_all_ec_lcopt_Co2L-1H.nc` (all nodes scenarios) or `networks/elec_s_4_ec_lcopt_Co2L-1H.nc` (4 nodes scenario) to run. By completing the snakemake workflow, this file should appear in the `netwoks/` folder.
 
 | Scenario | Run Script |
 | ------ | ------------- |
