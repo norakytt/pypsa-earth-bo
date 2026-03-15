@@ -58,7 +58,36 @@ Repository link to PyPSA-Earth (v.0.3.0): Link to this same version?
 
 ## 3) Repository Structure
 
-See folder overview in README text.
+This repository follows a modular structure consistent with PyPSA‑Earth.  
+Below is a description of the main folders and their purpose:
+
+- **config/**  
+  Contains all scenario configuration files (Base, Sudden, Gradual + NZE variants).  
+  Each config overrides PyPSA‑Earth defaults for fuel prices, emission caps, and Bolivian system parameters.
+
+- **custom_files/**  
+  Bolivia‑specific input data that replaces or extends PyPSA‑Earth defaults.  
+  Includes updated power plant lists (CNDC), fuel prices, corrected demand distribution, hydro inflows, and technology cost assumptions.
+
+- **network/**  
+  Pre‑processed 101‑node Bolivian network used as input for all scenario runs.
+
+- **run_scripts/**  
+  Python scripts that trigger each scenario (Base, Sudden, Gradual) and the NZE versions.  
+  These scripts load the correct config file and set scenario‑specific switches. Also contains scripts for sensitivity analyses (weather years, discount rate, gas price, technology cost, 4‑node comparison).
+
+- **test_runs/**  
+  Configured folder to place results from the runs_scripts.
+
+- **analysis/**  
+  Jupyter notebooks and helper scripts used to reproduce all figures and tables in the paper.  
+  The main notebooks are `analysis.ipynb` where .csv-files are created for the scenarios and `plots.ipynb` where all the plots from the paper can be created with the .csv-files created in `analysis.ipynb`.
+
+- **environment.yaml**  
+  Environment specification for reproducibility.
+
+- **results/**
+  Stores model outputs when scenarios are executed.
 
 ## 4) Configuration Setup
 
@@ -114,28 +143,57 @@ The folder `custom_files/` includes custom files which override PyPSA‑Earth de
 
 Build initial network by following the PyPSA-Earth documentation.
 
+By cloning this repository, all data is available - but you need to replace the files as described in custom files.
+
+Changes in the config.yaml-file and the model should remain as in this repository.
+
 Before each scenario run, the `networks/` folder should be cleared. Then run:
 
 ```bash
 snakemake -j1 solve_all_networks
 ```
 
-The run scripts to generate results need a complete network file `networks/elec_s_all_ec_lcopt_Co2L-1H.nc` (all nodes scenarios) or `networks/elec_s_4_ec_lcopt_Co2L-1H.nc` (4 nodes scenario) to run.
+The to generate results the run scripts need a complete network file `networks/elec_s_all_ec_lcopt_Co2L-1H.nc` (all nodes scenarios) or `networks/elec_s_4_ec_lcopt_Co2L-1H.nc` (4 nodes scenario) to run.
 
 ## 7) Main Scenario Runs
 
-```bash
-python run_scrips/run_base.py
-python run_scrips/run_base_nze.py
-python run_scrips/run_sudden.py
-python run_scrips/run_sudden_nze.py
-python run_scrips/run_gradual.py
-python run_scrips/run_gradual_nze.py
-```
+After the a successful installation and configuration of PyPSA-Earth-BO, you are ready to run the different scenarios. These are ready to run, and the results will appear after the run in their respective results folders as described in the run scripts.
+
+| Scenario | Run Script |
+| ------ | ------------- |
+| Base | `run_scrips/run_base.py` |
+| Base NZE | `run_scrips/run_base_nze.py` |
+| Sudden Cost | `run_scrips/run_sudden.py` |
+| Sudden Cost NZE | `run_scrips/run_sudden_nze.py` |
+| Gradual Cost | `run_scrips/run_gradual.py` |
+| Gradual Cost NZE | `run_scrips/run_gradual_nze.py` |
 
 ## 8) Sensitivity Runs
 
-Weather, tech cost, discount rate, gas price, and 4‑node model.
+| Sensitivity Analysis | Scenario | Run Script |
+| ------ | ------ | ------------- |
+| Weather | Base 2011 | `run_scrips/run_base.py`, change weather configuration as described in run script |
+| | Base 2018 | `run_scrips/run_base.py`, change weather configuration as described in run script |
+| | Sudden 2011 | `run_scrips/run_sudden.py`, change weather configuration as described in run script |
+| | Sudden 2018 | `run_scrips/run_sudden.py`, change weather configuration as described in run script |
+| | | |
+| Technology cost | Base Cost Sensitivity | `run_scrips/run_cost_sensitivity_base.py` |
+| | Sudden Cost Sensitivity | `run_scrips/run_cost_sensitivity_sudden.py` |
+| | Gradual Cost Sensitivity | `run_scrips/run_cost_sensitivity_gradual.py` |
+| | | |
+| Discount rate | Base 7% | `run_scrips/run_base.py`, change discount rate configuration as described in run script |
+| | Base 10% | `run_scrips/run_base.py`, change discount rate configuration as described in run script |
+| | Sudden 7% | `run_scrips/run_sudden.py`, change discount rate configuration as described in run script |
+| | Sudden 10% | `run_scrips/run_sudden.py`, change discount rate configuration as described in run script |
+| | Gradual 7% | `run_scrips/run_gradual.py`, change discount rate configuration as described in run script |
+| | Gradual 10% | `run_scrips/run_gradual.py`, change discount rate configuration as described in run script |
+| | | |
+| Gas Price | Base low gas prices | N/A, static gas price. Subsidy calculations from original scenario run |
+| | Base high gas prices | N/A, static gas price. Subsidy calculations from original scenario run |
+| | Sudden low gas prices | `run_scrips/run_sudden_gas_price_low.py` |
+| | Sudden high gas prices | `run_scrips/run_sudden_gas_price_high.py` |
+| | | |
+| Nodes | Gradual NZE 4 nodes | `run_scrips/run_gradual_nze_4_nodes.py` |
 
 ## 9) Analysis Scripts
 
