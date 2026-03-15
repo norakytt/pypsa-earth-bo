@@ -54,7 +54,9 @@ This project uses a **custom fork of PyPSA-Earth v.0.3.0**, which is extended to
 
 Paper source for model extensions: Kyte et al. 2026.
 
-Repository link to PyPSA-Earth (v.0.3.0): Link to this same version?
+### 2.3 Tested Environment
+
+The workflows were tested on Python 3.10.13 with PyPSA‑Earth v0.3.0 and Snakemake 7.32.4.
 
 ## 3) Repository Structure
 
@@ -79,9 +81,9 @@ Below is a description of the main folders and their purpose:
 - **test_runs/**  
   Configured folder to place results from the runs_scripts.
 
-- **analysis/**  
+- **analysis_scripts/**  
   Jupyter notebooks and helper scripts used to reproduce all figures and tables in the paper.  
-  The main notebooks are `analysis.ipynb` where .csv-files are created for the scenarios and `plots.ipynb` where all the plots from the paper can be created with the .csv-files created in `analysis.ipynb`.
+  The main notebooks are `analysis.ipynb` where .csv-files are created for the scenarios and plots notebooks where all the plots from the paper can be created with the .csv-files created in `analysis.ipynb`.
 
 - **environment.yaml**  
   Environment specification for reproducibility.
@@ -89,57 +91,24 @@ Below is a description of the main folders and their purpose:
 - **results/**
   Stores model outputs when scenarios are executed.
 
-## 4) Configuration Setup
+## 4) Configuration & Custom Files
 
-The main configuration files define:
+PyPSA‑Earth‑BO relies on a set of Bolivia‑specific configuration changes and custom input files.  
+The table below summarises all modifications, including where each change is implemented and which custom file it depends on.
 
-### **Technology assumptions updated in resources/costs.csv**
+A complete run of the snakemake workflow will overwrite most of these files. After a full and successful workflow, the rule categories "Download and Filter" and "Populate Data" are done and should not overwrite the data. However, after running these rules, the custom files must manually replace the default files as decribed in the tabel below.
 
-Updated CAPEX/OPEX using Bolivian‑specific sources and international references:  
+| Component / Adjustment | Description | File / Location |
+| ------------------------ | ------------- | ------------------ |
+| **Technology costs** | Updated CAPEX/OPEX for gas, diesel, biomass based on Bolivian data. Gas = 4.3 €/MWh, oil = 14.27 €/MWh, biomass = 1 €/MWh. | `custom_files/costs.csv` (replaces `resources/costs.csv`) |
+| **Demand distribution & growth** | Replaces PyPSA‑Earth default demand with CNDC 2022 nodal distribution + projected growth. | `custom_files/demand_profiles.csv` (replaces `resources/demand_profiles.csv`) |
+| **Hydropower inflows** | Reconstructed inflow series using seasonal CNDC patterns; reservoir storage updated from 6h → 1352h. | `custom_files/profile_hydro.nc` (replaces `resources/renewable_profiles/profile_hydro.nc`) |
+| **Emission caps (NZE)** | CO₂ budget consistent with IPCC NZE‑2050; activated in NZE run‑scripts. | Implemented in `run_scripts/*_nze.py` |
+| **Capacity constraints** | Max 400 MW/year new capacity; 100 MW/year geothermal; upper bounds for biomass/geothermal; yearly biomass CF constraint. | Implemented in `scripts/solve_all_networks.py` |
+| **Custom grid topology** | Corrected substations and transmission lines; replaces incomplete OSM data. | `custom_files/custom_substations1.geojson` and `custom_files/custom_lines1.geojson` (referenced in `config.yaml`) |
+| **Power plant database** | Updated 2022 CNDC power plant list; includes solar/wind shells and extendable hydro + geothermal potentials. | `custom_files/custom_powerplants.csv` (placed in `data/`) |
 
-- Updated low subsidized gas price (4.3 €/MWh)  
-- Updated diesel price (14.27 €/MWh)  
-- Biomass cost reduced to 1 €/MWh  
-
-### **Demand forecasting improved in resources/demand_profiles.csv**
-
-- Default PyPSA‑Earth demand projections are replaced with regulator data (CNDC 2022).
-- Demand grows annually according to historical + declared future consumption.
-
-### **Hydropower inflows changed in resources/renewable_profiles/profile_hydro.nc**
-
-- Reconstructed hourly inflows using seasonal CNDC patterns.
-- Reservoir storage updated from unrealistic 6h → 1352h.
-
-### **Emission caps (NZE) in run scripts**
-
-- CO₂ limits consistent with IPCC NZE‑2050.
-
-### **New model constraints in scripts/solve_all_networks.py**
-
-- Maximum **400 MW/year** total new capacity
-- Maximum **100 MW/year** geothermal expansion
-- Upper bounds for biomass and geothermal potentials
-- Yearly capacity factor constraint for biomass
-
-### **Created custom powerplant, substation and lines files due to discreptancies in OSM data**
-
-Files added to the folder `custom_files/` as backup and replaces the files with downloaded data from Open Street Map (OSM).
-
-## 5) Custom Files
-
-The folder `custom_files/` includes custom files which override PyPSA‑Earth defaults and includes:
-
-| File | Description |
-| ------ | ------------- |
-| `custom_powerplants.csv` | Updated 2022 Bolivian power plant list (CNDC), placed in the `data/` folder |
-| `costs.csv` | Adjusted Bolivian technology CAPEX/OPEX, replacing original costs-file in the `resources/` folder |
-| `profile_hydro.nc/` | Reconstructed inflow profiles, replacing original profile-file in the `resources/renewable_profiles/` folder |
-| `demand_profiles.csv` | Adjusted nodal load distribution, replacing original profile-file in the `resources/` folder |
-| `custom_substations1.geojson` | Custom geojson with improved substations data, path added to `path_custom_substations` in the `config.yaml` file |
-| `custom_lines1.geojson` | Custom geojson with improved line data, path added to `path_custom_lines` in the `config.yaml` file |
-
-## 6) Prepare Before Scenario Runs
+## 5) Prepare Before Scenario Runs
 
 Build initial network by following the PyPSA-Earth documentation.
 
@@ -147,7 +116,9 @@ By cloning this repository, all data is available - but you need to replace the 
 
 Changes in the config.yaml-file and the model should remain as in this repository.
 
-Before each scenario run, the `networks/` folder should be cleared. Then run:
+Before generating a new network, ensure that the `networks/` folder is cleared. PyPSA‑Earth regenerates all required files during the `solve_all_networks` step.
+
+Then run:
 
 ```bash
 snakemake -j1 solve_all_networks
@@ -155,7 +126,7 @@ snakemake -j1 solve_all_networks
 
 The to generate results the run scripts need a complete network file `networks/elec_s_all_ec_lcopt_Co2L-1H.nc` (all nodes scenarios) or `networks/elec_s_4_ec_lcopt_Co2L-1H.nc` (4 nodes scenario) to run.
 
-## 7) Main Scenario Runs
+## 6) Main Scenario Runs
 
 After the a successful installation and configuration of PyPSA-Earth-BO, you are ready to run the different scenarios. These are ready to run, and the results will appear after the run in their respective results folders as described in the run scripts.
 
@@ -168,7 +139,7 @@ After the a successful installation and configuration of PyPSA-Earth-BO, you are
 | Gradual Cost | `run_scrips/run_gradual.py` |
 | Gradual Cost NZE | `run_scrips/run_gradual_nze.py` |
 
-## 8) Sensitivity Runs
+## 7) Sensitivity Runs
 
 | Sensitivity Analysis | Scenario | Run Script |
 | ------ | ------ | ------------- |
@@ -195,20 +166,14 @@ After the a successful installation and configuration of PyPSA-Earth-BO, you are
 | | | |
 | Nodes | Gradual NZE 4 nodes | `run_scrips/run_gradual_nze_4_nodes.py` |
 
-## 9) Analysis Scripts
+## 8) Analyze Results
+
+The following Jupyter Notebooks are included to replicate the analysis and plots from the paper.
 
 ```bash
 analysis.ipynb
+plots.ipynb
+plots_gas.ipynb
+plots_costs.ipynb
+plots_discount.ipynb
 ```
-
-## 10) Citation
-
-Add citation once paper is published.
-
-## 11) Authors & Contact
-
-Add author information.
-
-## 12) License & Data Availability
-
-Add license and data access information.
