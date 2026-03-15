@@ -122,8 +122,8 @@ load_options:
   ssp: "ssp2-2.6" # shared socio-economic pathway (GDP and population growth) scenario to consider
   weather_year: 2013  # Load scenarios available with different weather year (different renewable potentials)
   prediction_year: 2030  # Load scenarios available with different prediction year (GDP, population)
-  scale:  0.98906333 # 2021: 0.83392133, 2022: 0.88587052, 2023: 0.93420356 scales all load time-series, i.e. 2 = doubles load  # scales all load time-series, i.e. 2 = doubles load
-
+  scale:  0.98906333 
+  
 electricity:
   base_voltage: 230.
   voltages: [69., 115., 230.]
