@@ -48,7 +48,6 @@ result_dfs/
 results/
 run_scripts/
 custom_files/old/
-final_results/
 sudden_4/
 sudden_007/
 sudden_010/
@@ -57,6 +56,7 @@ sudden_2018/
 sudden_2025_correct/
 sudden_cost/
 sudden_nze_2025_correct/
+final_results/
 
 configs/scenarios/config.*.yaml
 !configs/scenarios/config.NG.yaml
