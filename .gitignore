@@ -48,6 +48,7 @@ result_dfs/
 results/
 run_scripts/
 custom_files/old/
+final_results/
 
 configs/scenarios/config.*.yaml
 !configs/scenarios/config.NG.yaml

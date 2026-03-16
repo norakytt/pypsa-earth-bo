@@ -9,6 +9,8 @@ import subprocess
 #import hydro_extendable as hyd
 import math
 
+nodes = 'all'
+scenario = 'gradual'
 
 network = 'networks/elec_s_all_ec_lcopt_Co2L-1H.nc'
 n = pypsa.Network(network)
@@ -361,9 +363,8 @@ def yearly_changes(n,year):
         mask = n.generators['carrier'] == car
         indexes[car] = n.generators.index[mask].tolist()
     for car in indexes:
-        #n.generators.loc[indexes[car], 'marginal_cost'] = n.generators.loc[indexes[car], 'marginal_cost'] / scale_cost_sudden[(car, year)]
         VOM, fuel, efficiency = cost_parameters(car)
-        scaled_fuel = fuel / scale_cost_sudden_4[(car, year)]    
+        scaled_fuel = fuel / scale_cost_gradual[(car, year)]    
         n.generators.loc[indexes[car], 'marginal_cost'] = VOM + (scaled_fuel / efficiency)
 
     # ------- GENERATOR EXTENSTION -----
@@ -491,8 +492,8 @@ def rename_results_file(year):
 
 
 
-scen_folder = 'sudden_4'
-scen = 'S'
+scen_folder = 'gradual_010'
+scen = 'G'
 
 
 for year in range(2024, 2041):
