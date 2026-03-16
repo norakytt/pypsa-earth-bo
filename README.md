@@ -63,21 +63,23 @@ The installation and requirements are equal to those of pypsa-earth:
     .../some/path/without/spaces % git clone https://github.com/norakytt/pypsa-earth-bo.git
     ```
 
-2. The python package requirements are found in environment.yaml. The environment can be installed like this:
+2. Change cloned folder name from `pypsa-earth-bo` to `pypsa-earth`.
+
+3. The python package requirements are found in environment.yaml. The environment can be installed like this:
 
     ```bash
     .../pypsa-earth % conda env create -f envs/environment.yaml
     ```
 
-3. In step 2, three solvers are installed: HiGHs, glpk and gurobi. For this paper we have used gurobi.
+4. In step 2, three solvers are installed: HiGHs, glpk and gurobi. For this paper we have used gurobi.
 
-4. To use jupyter lab (new jupyter notebooks) **continue** with the [ipython kernel installation](http://echrislynch.com/2019/02/01/adding-an-environment-to-jupyter-notebooks/) and test if your jupyter lab works:
+5. To use jupyter lab (new jupyter notebooks) **continue** with the [ipython kernel installation](http://echrislynch.com/2019/02/01/adding-an-environment-to-jupyter-notebooks/) and test if your jupyter lab works:
 
    ```bash
    .../pypsa-earth % ipython kernel install --user --name=pypsa-earth
    .../pypsa-earth % jupyter lab
 
-5. Verify or install a java redistribution from the [official website](https://www.oracle.com/java/technologies/downloads/) or equivalent. To verify the successful installation the following code can be tested from bash:
+6. Verify or install a java redistribution from the [official website](https://www.oracle.com/java/technologies/downloads/) or equivalent. To verify the successful installation the following code can be tested from bash:
 
    ```bash
    .../pypsa-earth % java -version
