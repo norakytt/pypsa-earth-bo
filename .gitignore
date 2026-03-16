@@ -24,7 +24,6 @@ line_cap.ipynb
 
 # Files appear for tests
 configs/scenarios/config.custom.yaml
-data/*.csv
 data/*.geojson
 
 # Untracked folders (and files within)
@@ -37,11 +36,9 @@ analysis_scripts/old_analysis_scripts/
 analysis_scripts/reliability/
 benchmarks/
 cutouts/
-data/
 diverse/
 figures/
 logs/*
-resources/
 result_data/
 result_dfs/
 run_scripts/
