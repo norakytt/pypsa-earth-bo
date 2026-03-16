@@ -18,14 +18,14 @@
 
 # Untracked files
 dag.svg
-notater.txt
-create_new_cost_files.py
 line_cap.ipynb
 
 # Files appear for tests
 configs/scenarios/config.custom.yaml
-data/*.csv
 data/*.geojson
+data/eia_hydro_annual_generation.csv
+resources/costs.csv
+resources/natura.tiff
 
 # Untracked folders (and files within)
 .snakemake/incomplete/*
@@ -37,11 +37,21 @@ analysis_scripts/old_analysis_scripts/
 analysis_scripts/reliability/
 benchmarks/
 cutouts/
-data/
+data/copernicus/
+data/costs_copy/
+data/eez/
+data/gadm/
+data/GDP/
+data/gebco/
+data/hydrobasins/
+data/landcover/
+data/natura/
+data/osm/
+data/ssp2-2.6/
+data/WorldPop/
 diverse/
 figures/
 logs/*
-resources/
 result_data/
 result_dfs/
 run_scripts/
@@ -55,6 +65,7 @@ sudden_2025_correct/
 sudden_cost/
 sudden_nze_2025_correct/
 final_results/
+old_files/
 
 configs/scenarios/config.*.yaml
 !configs/scenarios/config.NG.yaml
