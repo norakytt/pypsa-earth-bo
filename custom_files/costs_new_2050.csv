@@ -1,0 +1,204 @@
+technology,year,parameter,value,unit,source,further description,currency_year
+solar-rooftop,2025,discount rate,0.04,per unit,standard for decentral, from old pypsa cost assumptions,2015.0
+onwind,2025,lifetime,30.0,years,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",20 Onshore turbines:  Technical lifetime,2015.0
+offwind,2025,lifetime,30.0,years,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",21 Offshore turbines:  Technical lifetime [years],2020.0
+solar,2025,lifetime,40.0,years,Calculated. See 'further description'.,Mixed investment costs based on average of 50% 'solar-rooftop' and 50% 'solar-utility',2020.0
+solar-rooftop,2025,lifetime,40.0,years,Calculated. See 'further description'.,Mixed investment costs based on average of 50% 'solar-rooftop commercial' and 50% 'solar-rooftop residential',2020.0
+solar-utility,2025,lifetime,40.0,years,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",22 Utility-scale PV:  Technical lifetime [years],2020.0
+PHS,2025,lifetime,80.0,years,IEA2010, from old pypsa cost assumptions,2015.0
+hydro,2025,lifetime,80.0,years,IEA2010, from old pypsa cost assumptions,2015.0
+ror,2025,lifetime,80.0,years,IEA2010, from old pypsa cost assumptions,2015.0
+OCGT,2025,lifetime,25.0,years,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",52 OCGT - Natural gas:  Technical lifetime,2015.0
+nuclear,2025,lifetime,40.0,years,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.",,2023.0
+CCGT,2025,lifetime,25.0,years,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","05 Gas turb. CC, steam extract.:  Technical lifetime",2015.0
+coal,2025,lifetime,40.0,years,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.",,2023.0
+lignite,2025,lifetime,40.0,years,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Note: Assume same costs as for hard coal, as cost structure is apparently comparable, see https://diglib.tugraz.at/download.php?id=6093e88b63f93&location=browse and https://iea.blob.core.windows.net/assets/ae17da3d-e8a5-4163-a3ec-2e6fb0b5677d/Projected-Costs-of-Generating-Electricity-2020.pdf . ",2023.0
+geothermal,2025,lifetime,30.0,years,"Aghahosseini, Breyer 2020: From hot rock to useful energy: A global estimate of enhanced geothermal systems potential, https://www.sciencedirect.com/science/article/pii/S0306261920312551",,2020.0
+biomass,2025,lifetime,30.0,years,ECF2010 in DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2015.0
+oil,2025,lifetime,25.0,years,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",50 Diesel engine farm:  Technical lifetime,2015.0
+onwind,2025,investment,1019.1375,EUR/kWel,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",20 Onshore turbines:  Nominal investment ,2015.0
+offwind,2025,investment,1523.9311,EUR/kWel,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","21 Offshore turbines:  Nominal investment [MEUR/MW_e, 2020] grid connection costs subtracted from investment costs",2020.0
+offwind-ac-station,2025,investment,264.5554,EUR/kWel,DEA https://ens.dk/en/our-services/projections-and-models/technology-data, from old pypsa cost assumptions,2015.0
+offwind-ac-connection-submarine,2025,investment,2841.3251,EUR/MW/km,DEA https://ens.dk/en/our-services/projections-and-models/technology-data, from old pypsa cost assumptions,2015.0
+offwind-ac-connection-underground,2025,investment,1420.1334,EUR/MW/km,DEA https://ens.dk/en/our-services/projections-and-models/technology-data, from old pypsa cost assumptions,2015.0
+offwind-dc-station,2025,investment,423.2887,EUR/kWel,Haertel 2017; assuming one onshore and one offshore node + 13% learning reduction, from old pypsa cost assumptions,2015.0
+offwind-dc-connection-submarine,2025,investment,2116.4433,EUR/MW/km,DTU report based on Fig 34 of https://ec.europa.eu/energy/sites/ener/files/documents/2014_nsog_report.pdf, from old pypsa cost assumptions,2015.0
+offwind-dc-connection-underground,2025,investment,1058.2216,EUR/MW/km,Haertel 2017; average + 13% learning reduction, from old pypsa cost assumptions,2015.0
+solar,2025,investment,408.7174,EUR/kWel,Calculated. See 'further description'.,Mixed investment costs based on average of 50% 'solar-rooftop' and 50% 'solar-utility',2020.0
+biomass,2025,investment,2337.6116,EUR/kWel,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2015.0
+geothermal,2025,investment,3392.0,EUR/kWel,DIW DataDoc http://hdl.handle.net/10419/80348,,2013.0
+coal,2025,investment,3827.1629,EUR/kWel,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Higher costs include coal plants with CCS, but since using here for calculating the average nevertheless. Calculated based on average of listed range, i.e. (3200+6775) USD/kW_e/2 / (1.09 USD/EUR).",2023.0
+lignite,2025,investment,3827.1629,EUR/kWel,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Higher costs include coal plants with CCS, but since using here for calculating the average nevertheless. Calculated based on average of listed range, i.e. (3200+6775) USD/kW_e/2 / (1.09 USD/EUR). Note: Assume same costs as for hard coal, as cost structure is apparently comparable, see https://diglib.tugraz.at/download.php?id=6093e88b63f93&location=browse and https://iea.blob.core.windows.net/assets/ae17da3d-e8a5-4163-a3ec-2e6fb0b5677d/Projected-Costs-of-Generating-Electricity-2020.pdf .",2023.0
+solar-rooftop,2025,investment,524.8579,EUR/kWel,Calculated. See 'further description'.,Mixed investment costs based on average of 50% 'solar-rooftop commercial' and 50% 'solar-rooftop residential',2020.0
+solar-utility,2025,investment,292.5769,EUR/kWel,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",22 Utility-scale PV:  Nominal investment [2020-MEUR/MW_e],2020.0
+PHS,2025,investment,2274.8177,EUR/kWel,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2010.0
+hydro,2025,investment,2274.8177,EUR/kWel,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2010.0
+ror,2025,investment,3412.2266,EUR/kWel,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2010.0
+OCGT,2025,investment,435.818,EUR/kWel,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",52 OCGT - Natural gas:  Specific investment,2015.0
+nuclear,2025,investment,8594.1354,EUR/kWel,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","U.S. specific costs including newly commissioned Vogtle plant, average of range and currency converted, i.e. (8475+13925)/2 USD/kW_e / (1.09 USD/EUR) .",2023.0
+CCGT,2025,investment,846.5773,EUR/kWel,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","05 Gas turb. CC, steam extract.:  Nominal investment",2015.0
+oil,2025,investment,355.5625,EUR/kWel,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",50 Diesel engine farm:  Specific investment,2015.0
+onwind,2025,FOM,1.1775,%/year,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",20 Onshore turbines:  Fixed O&M,2015.0
+offwind,2025,FOM,2.1655,%/year,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","21 Offshore turbines:  Fixed O&M [EUR/MW_e/y, 2020]",2020.0
+solar,2025,FOM,2.0676,%/year,Calculated. See 'further description'.,Mixed investment costs based on average of 50% 'solar-rooftop' and 50% 'solar-utility',2020.0
+solar-rooftop,2025,FOM,1.6059,%/year,Calculated. See 'further description'.,Mixed investment costs based on average of 50% 'solar-rooftop commercial' and 50% 'solar-rooftop residential',2020.0
+solar-utility,2025,FOM,2.5292,%/year,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",22 Utility-scale PV:  Fixed O&M [2020-EUR/MW_e/y],2020.0
+biomass,2025,FOM,4.5269,%/year,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2015.0
+geothermal,2025,FOM,2.0,%/year,"Aghahosseini, Breyer 2020: From hot rock to useful energy: A global estimate of enhanced geothermal systems potential, https://www.sciencedirect.com/science/article/pii/S0306261920312551",See Supplemental Material of source for details,2020.0
+coal,2025,FOM,1.31,%/year,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Calculated based on average of listed range, i.e. (39.5+91.25) USD/kW_e/a /2 / (1.09 USD/EUR) / investment cost * 100.",2023.0
+lignite,2025,FOM,1.31,%/year,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Calculated based on average of listed range, i.e. (39.5+91.25) USD/kW_e/a /2 / (1.09 USD/EUR) / investment cost * 100. Note: Assume same costs as for hard coal, as cost structure is apparently comparable, see https://diglib.tugraz.at/download.php?id=6093e88b63f93&location=browse and https://iea.blob.core.windows.net/assets/ae17da3d-e8a5-4163-a3ec-2e6fb0b5677d/Projected-Costs-of-Generating-Electricity-2020.pdf . ",2023.0
+oil,2025,FOM,2.4095,%/year,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",50 Diesel engine farm:  Fixed O&M,2015.0
+PHS,2025,FOM,1.0,%/year,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2015.0
+hydro,2025,FOM,1.0,%/year,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2015.0
+ror,2025,FOM,2.0,%/year,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2015.0
+CCGT,2025,FOM,3.25,%/year,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","05 Gas turb. CC, steam extract.:  Fixed O&M",2015.0
+OCGT,2025,FOM,1.8023,%/year,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",52 OCGT - Natural gas:  Fixed O&M,2015.0
+onwind,2025,VOM,1.2857,EUR/MWhel,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",20 Onshore turbines:  Variable O&M,2015.0
+offwind,2025,VOM,0.0212,EUR/MWhel,RES costs made up to fix curtailment order, from old pypsa cost assumptions,2015.0
+solar,2025,VOM,0.0106,EUR/MWhel,RES costs made up to fix curtailment order, from old pypsa cost assumptions,2015.0
+coal,2025,VOM,3.2612,EUR/MWhel,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Calculated based on average of listed range, i.e. (3+5.5)USD/MWh_e/2 / (1.09 USD/EUR).",2023.0
+lignite,2025,VOM,3.2612,EUR/MWhel,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Calculated based on average of listed range, i.e. (3+5.5)USD/MWh_e/2 / (1.09 USD/EUR). Note: Assume same costs as for hard coal, as cost structure is apparently comparable, see https://diglib.tugraz.at/download.php?id=6093e88b63f93&location=browse and https://iea.blob.core.windows.net/assets/ae17da3d-e8a5-4163-a3ec-2e6fb0b5677d/Projected-Costs-of-Generating-Electricity-2020.pdf . ",2023.0
+CCGT,2025,VOM,4.2329,EUR/MWhel,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","05 Gas turb. CC, steam extract.:  Variable O&M",2015.0
+OCGT,2025,VOM,4.762,EUR/MWhel,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",52 OCGT - Natural gas:  Variable O&M,2015.0
+nuclear,2025,VOM,3.5464,EUR/MWhel,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","U.S. specific costs including newly commissioned Vogtle plant, average of range and currency converted, i.e. (4.25+5)/2 USD/kW_e / (1.09 USD/EUR) .",2023.0
+gas,2025,fuel,24.568,EUR/MWhth,"DIW (2013): Current and propsective costs of electricity generation until 2050, http://hdl.handle.net/10419/80348 , pg. 80 text below figure 10, accessed: 2023-12-14.",Based on IEA 2011 data.,2010.0
+uranium,2025,fuel,3.4122,EUR/MWhth,"DIW (2013): Current and propsective costs of electricity generation until 2050, http://hdl.handle.net/10419/80348 , pg. 80 text below figure 10, accessed: 2023-12-14.",Based on IEA 2011 data.,2010.0
+oil,2025,VOM,6.3493,EUR/MWhel,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",50 Diesel engine farm:  Variable O&M,2015.0
+nuclear,2025,fuel,3.4122,EUR/MWhth,"DIW (2013): Current and propsective costs of electricity generation until 2050, http://hdl.handle.net/10419/80348 , pg. 80 text below figure 10, accessed: 2023-12-14.",Based on IEA 2011 data.,2010.0
+biomass,2025,fuel,7.4076,EUR/MWhth,IEA2011b, from old pypsa cost assumptions,2015.0
+coal,2025,fuel,9.5542,EUR/MWhth,"DIW (2013): Current and propsective costs of electricity generation until 2050, http://hdl.handle.net/10419/80348 , pg. 80 text below figure 10, accessed: 2023-12-14.","Based on IEA 2011 data, 99 USD/t.",2010.0
+lignite,2025,fuel,3.2985,EUR/MWhth,"DIW (2013): Current and propsective costs of electricity generation until 2050, http://hdl.handle.net/10419/80348 , pg. 80 text below figure 10, accessed: 2023-12-14.","Based on IEA 2011 data, 10 USD/t.",2010.0
+oil,2025,fuel,52.9111,EUR/MWhth,IEA WEM2017 97USD/boe = http://www.iea.org/media/weowebsite/2017/WEM_Documentation_WEO2017.pdf, from old pypsa cost assumptions,2015.0
+PHS,2025,efficiency,0.75,per unit,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2015.0
+hydro,2025,efficiency,0.9,per unit,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2015.0
+ror,2025,efficiency,0.9,per unit,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2015.0
+OCGT,2025,efficiency,0.43,per unit,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","52 OCGT - Natural gas:  Electricity efficiency, annual average",2015.0
+CCGT,2025,efficiency,0.6,per unit,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","05 Gas turb. CC, steam extract.:  Electricity efficiency, annual average",2015.0
+biomass,2025,efficiency,0.468,per unit,DIW DataDoc http://hdl.handle.net/10419/80348, from old pypsa cost assumptions,2015.0
+geothermal,2025,efficiency,0.239,per unit,DIW DataDoc http://hdl.handle.net/10419/80348,,
+nuclear,2025,efficiency,0.326,per unit,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Based on heat rate of 10.45 MMBtu/MWh_e and 3.4095 MMBtu/MWh_th, i.e. 1/(10.45/3.4095) = 0.3260.",2023.0
+gas,2025,CO2 intensity,0.198,tCO2/MWth,Stoichiometric calculation with 50 GJ/t CH4,,
+coal,2025,efficiency,0.356,per unit,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Calculated based on average of listed range, i.e. 1 / ((8.75+12) MMbtu/MWh_th /2 / (3.4095 MMbtu/MWh_th)), rounded up.",2023.0
+lignite,2025,efficiency,0.33,per unit,"Lazard's levelized cost of energy analysis - version 16.0 (2023): https://www.lazard.com/media/typdgxmm/lazards-lcoeplus-april-2023.pdf , pg. 49 (Levelized Cost of Energy - Key Assumptions), accessed: 2023-12-14.","Calculated based on average of listed range, i.e. 1 / ((8.75+12) MMbtu/MWh_th /2 / (3.4095 MMbtu/MWh_th)), rounded up. Note: Assume same costs as for hard coal, as cost structure is apparently comparable, see https://diglib.tugraz.at/download.php?id=6093e88b63f93&location=browse and https://iea.blob.core.windows.net/assets/ae17da3d-e8a5-4163-a3ec-2e6fb0b5677d/Projected-Costs-of-Generating-Electricity-2020.pdf . ",2023.0
+oil,2025,efficiency,0.35,per unit,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","50 Diesel engine farm:  Electricity efficiency, annual average",2015.0
+coal,2025,CO2 intensity,0.3361,tCO2/MWth,Entwicklung der spezifischen Kohlendioxid-Emissionen des deutschen Strommix in den Jahren 1990 - 2018,,
+lignite,2025,CO2 intensity,0.4069,tCO2/MWth,Entwicklung der spezifischen Kohlendioxid-Emissionen des deutschen Strommix in den Jahren 1990 - 2018,,
+oil,2025,CO2 intensity,0.2571,tCO2/MWth,Stoichiometric calculation with 44 GJ/t diesel and -CH2- approximation of diesel,,
+geothermal,2025,CO2 intensity,0.12,tCO2/MWth,"Aghahosseini, Breyer 2020: From hot rock to useful energy: A global estimate of enhanced geothermal systems potential, https://www.sciencedirect.com/science/article/pii/S0306261920312551",Likely to be improved; Average of 85 percent of global egs power plant capacity; Result of fluid circulation through rock formations,2020.0
+electrolysis,2025,investment,1000.0,EUR/kWel,private communications; IEA https://iea.blob.core.windows.net/assets/9e0c82d4-06d2-496b-9542-f184ba803645/TheRoleofE-fuelsinDecarbonisingTransport.pdf,,2020.0
+electrolysis,2025,FOM,4.0,%/year,"Danish Energy Agency, inputs/data_sheets_for_renewable_fuels.xlsx",86 AEC 100 MW:  Fixed O&M ,2020.0
+electrolysis,2025,lifetime,25.0,years,"Danish Energy Agency, inputs/data_sheets_for_renewable_fuels.xlsx",86 AEC 100 MW:  Technical lifetime,2020.0
+electrolysis,2025,efficiency,0.6994,per unit,"Danish Energy Agency, inputs/data_sheets_for_renewable_fuels.xlsx",86 AEC 100 MW:  Hydrogen Output,2020.0
+fuel cell,2025,investment,846.5773,EUR/kWel,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",12 LT-PEMFC CHP:  Nominal investment,2015.0
+fuel cell,2025,FOM,5.0,%/year,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",12 LT-PEMFC CHP:  Fixed O&M,2015.0
+fuel cell,2025,lifetime,10.0,years,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",12 LT-PEMFC CHP:  Technical lifetime,2015.0
+fuel cell,2025,efficiency,0.5,per unit,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","12 LT-PEMFC CHP:  Electricity efficiency, annual average",2015.0
+hydrogen storage tank,2025,investment,13.5,EUR/kWh_H2,"Based on Stöckl et al (2021): https://doi.org/10.48550/arXiv.2005.03464, table SI.9.","450 EUR/kg_H2 converted with LHV to MWh. For a type 1 hydrogen storage tank (steel, 15-250 bar). Currency year assumed 2020 for initial publication of reference; observe note in SI.4.3 that no currency year is explicitly stated in the reference.",2020.0
+hydrogen storage tank,2025,lifetime,20.0,years,"Based on Stöckl et al (2021): https://doi.org/10.48550/arXiv.2005.03464, table SI.9.",-,2020.0
+hydrogen storage underground,2025,investment,1.2761,EUR/kWh,"Danish Energy Agency, inputs/technology_data_catalogue_for_energy_storage.xlsx",151c Hydrogen Storage - Caverns:  Specific investment,2020.0
+hydrogen storage underground,2025,lifetime,100.0,years,"Danish Energy Agency, inputs/technology_data_catalogue_for_energy_storage.xlsx",151c Hydrogen Storage - Caverns:  Technical lifetime,2020.0
+H2 pipeline,2025,investment,282.5452,EUR/MW/km,Welder et al https://doi.org/10.1016/j.energy.2018.05.059, from old pypsa cost assumptions,2015.0
+H2 pipeline,2025,lifetime,40.0,years,TODO, from old pypsa cost assumptions,2015.0
+H2 pipeline,2025,FOM,3.0,%/year,TODO, from old pypsa cost assumptions,2015.0
+H2 pipeline,2025,efficiency,0.98,per unit,Krieg2012 http://juser.fz-juelich.de/record/136392/files/Energie%26Umwelt_144.pdf,,
+methanation,2025,investment,519.7389,mismatch - EUR/kWH2 - EUR/kW_CH4,"Agora Energiewende (2018): The Future Cost of Electricity-Based Synthetic Fuels (https://www.agora-energiewende.de/en/publications/the-future-cost-of-electricity-based-synthetic-fuels-1/), table 6: “Reference scenario”.",,2017.0
+methanation,2025,lifetime,20.0,years,Guesstimate.,"Based on lifetime for methanolisation, Fischer-Tropsch plants.",2017.0
+methanation,2025,FOM,3.0,%/year,"Agora Energiewende (2018): The Future Cost of Electricity-Based Synthetic Fuels (https://www.agora-energiewende.de/en/publications/the-future-cost-of-electricity-based-synthetic-fuels-1/), section 6.2.3.1",,2017.0
+methanation,2025,efficiency,0.8,per unit,Palzer and Schaber thesis, from old pypsa cost assumptions,2015.0
+helmeth,2025,investment,2116.4433,EUR/kWel,no source, from old pypsa cost assumptions,2015.0
+helmeth,2025,lifetime,25.0,years,no source, from old pypsa cost assumptions,2015.0
+helmeth,2025,FOM,3.0,%/year,no source, from old pypsa cost assumptions,2015.0
+helmeth,2025,efficiency,0.8,per unit,HELMETH press release, from old pypsa cost assumptions,2015.0
+DAC,2025,investment,456.62100456621005,EUR/(tCO2/a),"Danish Energy Agency, inputs/technology_data_for_carbon_capture_transport_storage.xlsx",403.a Direct air capture,2020.0
+DAC,2025,lifetime,20.0,years,"Danish Energy Agency, inputs/technology_data_for_carbon_capture_transport_storage.xlsx",403.a Direct air capture,2020.0
+DAC,2025,FOM,4.95,%/year,"Danish Energy Agency, inputs/technology_data_for_carbon_capture_transport_storage.xlsx",403.a Direct air capture,2020.0
+battery inverter,2025,investment,63.804,EUR/kWel,"Danish Energy Agency, inputs/technology_data_catalogue_for_energy_storage.xlsx",:  Output capacity expansion cost investment,2020.0
+battery inverter,2025,lifetime,10.0,years,"Danish Energy Agency, inputs/technology_data_catalogue_for_energy_storage.xlsx, Note K.",:  Technical lifetime,2020.0
+battery inverter,2025,efficiency,0.96,per unit,"Danish Energy Agency, inputs/technology_data_catalogue_for_energy_storage.xlsx",:  Round trip efficiency DC,2020.0
+battery inverter,2025,FOM,0.9,%/year,"Danish Energy Agency, inputs/technology_data_catalogue_for_energy_storage.xlsx",:  Fixed O&M,2020.0
+battery storage,2025,investment,79.755,EUR/kWh,"Danish Energy Agency, inputs/technology_data_catalogue_for_energy_storage.xlsx",:  Energy storage expansion cost investment,2020.0
+battery storage,2025,lifetime,30.0,years,"Danish Energy Agency, inputs/technology_data_catalogue_for_energy_storage.xlsx",:  Technical lifetime,2020.0
+decentral air-sourced heat pump,2025,investment,804.2484,mismatch - EUR/kWth - EUR/kW_th,"Danish Energy Agency, inputs/technologydatafor_heating_installations_marts_2018.xlsx",207.3 Air to water existing:  Specific investment,2015.0
+decentral air-sourced heat pump,2025,lifetime,18.0,years,"Danish Energy Agency, inputs/technologydatafor_heating_installations_marts_2018.xlsx",207.3 Air to water existing:  Technical lifetime,2015.0
+decentral air-sourced heat pump,2025,FOM,3.1413,%/year,"Danish Energy Agency, inputs/technologydatafor_heating_installations_marts_2018.xlsx",207.3 Air to water existing:  Fixed O&M,2015.0
+decentral air-sourced heat pump,2025,efficiency,3.8,per unit,"Danish Energy Agency, inputs/technologydatafor_heating_installations_marts_2018.xlsx","207.3 Air to water existing:  Heat efficiency, annual average, net, radiators, existing one family house",2015.0
+decentral air-sourced heat pump,2025,discount rate,0.04,per unit,Palzer thesis, from old pypsa cost assumptions,2015.0
+decentral ground-sourced heat pump,2025,investment,1269.866,mismatch - EUR/kWth - EUR/kW_th,"Danish Energy Agency, inputs/technologydatafor_heating_installations_marts_2018.xlsx",207.7 Ground source existing:  Specific investment,2015.0
+decentral ground-sourced heat pump,2025,lifetime,20.0,years,"Danish Energy Agency, inputs/technologydatafor_heating_installations_marts_2018.xlsx",207.7 Ground source existing:  Technical lifetime,2015.0
+decentral ground-sourced heat pump,2025,FOM,1.9895,%/year,"Danish Energy Agency, inputs/technologydatafor_heating_installations_marts_2018.xlsx",207.7 Ground source existing:  Fixed O&M,2015.0
+decentral ground-sourced heat pump,2025,efficiency,4.05,per unit,"Danish Energy Agency, inputs/technologydatafor_heating_installations_marts_2018.xlsx","207.7 Ground source existing:  Heat efficiency, annual average, net, radiators, existing one family house",2015.0
+decentral ground-sourced heat pump,2025,discount rate,0.04,per unit,Palzer thesis, from old pypsa cost assumptions,2015.0
+central air-sourced heat pump,2025,investment,906.0988,mismatch - EUR/kWth - EUR/kW_th,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","40 Comp. hp, airsource 3 MW:  Specific investment",2015.0
+central air-sourced heat pump,2025,lifetime,25.0,years,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","40 Comp. hp, airsource 3 MW:  Technical lifetime",2015.0
+central air-sourced heat pump,2025,FOM,0.2336,%/year,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","40 Comp. hp, airsource 3 MW:  Fixed O&M",2015.0
+central air-sourced heat pump,2025,efficiency,3.4,per unit,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","40 Comp. hp, airsource 3 MW:  Total efficiency, net, name plate",2015.0
+retrofitting I,2025,discount rate,0.04,per unit,Palzer thesis,,
+retrofitting I,2025,lifetime,50.0,years,Palzer thesis,,
+retrofitting I,2025,FOM,1.0,%/year,Palzer thesis,,2013.0
+retrofitting I,2025,investment,50.0,EUR/m2/fraction reduction,Palzer thesis,,2013.0
+retrofitting II,2025,discount rate,0.04,per unit,Palzer thesis,,
+retrofitting II,2025,lifetime,50.0,years,Palzer thesis,,
+retrofitting II,2025,FOM,1.0,%/year,Palzer thesis,,2013.0
+retrofitting II,2025,investment,250.0,EUR/m2/fraction reduction,Palzer thesis,,2013.0
+water tank charger,2025,efficiency,0.9,per unit,HP, from old pypsa cost assumptions,2015.0
+water tank discharger,2025,efficiency,0.9,per unit,HP, from old pypsa cost assumptions,2015.0
+decentral water tank storage,2025,investment,419.8622,mismatch - EUR/m3 - EUR/kWh,"Danish Energy Agency, inputs/technology_data_catalogue_for_energy_storage.xlsx",142 Small scale hot water tank:  Specific investment,2020.0
+decentral water tank storage,2025,FOM,1.0,%/year,HP, from old pypsa cost assumptions,2015.0
+decentral water tank storage,2025,lifetime,30.0,years,"Danish Energy Agency, inputs/technology_data_catalogue_for_energy_storage.xlsx",142 Small scale hot water tank:  Technical lifetime,2020.0
+decentral water tank storage,2025,discount rate,0.04,per unit,Palzer thesis, from old pypsa cost assumptions,2015.0
+central water tank storage,2025,investment,3.0361,mismatch - EUR/m3 - EUR/kWhCapacity,"Danish Energy Agency, inputs/technology_data_catalogue_for_energy_storage.xlsx",141 Large hot water tank:  Specific investment,2020.0
+central water tank storage,2025,FOM,1.0,%/year,HP, from old pypsa cost assumptions,2015.0
+central water tank storage,2025,lifetime,40.0,years,"Danish Energy Agency, inputs/technology_data_catalogue_for_energy_storage.xlsx",141 Large hot water tank:  Technical lifetime,2020.0
+decentral resistive heater,2025,investment,105.8222,EUR/kWhth,Schaber thesis, from old pypsa cost assumptions,2015.0
+decentral resistive heater,2025,lifetime,20.0,years,Schaber thesis, from old pypsa cost assumptions,2015.0
+decentral resistive heater,2025,FOM,2.0,%/year,Schaber thesis, from old pypsa cost assumptions,2015.0
+decentral resistive heater,2025,efficiency,0.9,per unit,Schaber thesis, from old pypsa cost assumptions,2015.0
+decentral resistive heater,2025,discount rate,0.04,per unit,Palzer thesis, from old pypsa cost assumptions,2015.0
+central resistive heater,2025,investment,63.4933,EUR/kWhth,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",41 Electric Boilers:  Nominal investment; 10/15 kV; >10 MW,2015.0
+central resistive heater,2025,lifetime,20.0,years,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",41 Electric Boilers:  Technical lifetime,2015.0
+central resistive heater,2025,FOM,1.5333,%/year,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",41 Electric Boilers:  Fixed O&M,2015.0
+central resistive heater,2025,efficiency,0.99,per unit,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","41 Electric Boilers:  Total efficiency , net, annual average",2015.0
+decentral gas boiler,2025,investment,284.1413,EUR/kWhth,"Danish Energy Agency, inputs/technologydatafor_heating_installations_marts_2018.xlsx",202 Natural gas boiler:  Specific investment,2015.0
+decentral gas boiler,2025,lifetime,20.0,years,"Danish Energy Agency, inputs/technologydatafor_heating_installations_marts_2018.xlsx",202 Natural gas boiler:  Technical lifetime,2015.0
+decentral gas boiler,2025,FOM,6.7293,%/year,"Danish Energy Agency, inputs/technologydatafor_heating_installations_marts_2018.xlsx",202 Natural gas boiler:  Fixed O&M,2015.0
+decentral gas boiler,2025,efficiency,0.99,per unit,"Danish Energy Agency, inputs/technologydatafor_heating_installations_marts_2018.xlsx","202 Natural gas boiler:  Total efficiency, annual average, net",2015.0
+decentral gas boiler,2025,discount rate,0.04,per unit,Palzer thesis, from old pypsa cost assumptions,2015.0
+central gas boiler,2025,investment,52.9111,EUR/kWhth,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",44 Natural Gas DH Only:  Nominal investment,2015.0
+central gas boiler,2025,lifetime,25.0,years,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",44 Natural Gas DH Only:  Technical lifetime,2015.0
+central gas boiler,2025,FOM,3.4,%/year,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx",44 Natural Gas DH Only:  Fixed O&M,2015.0
+central gas boiler,2025,efficiency,1.04,per unit,"Danish Energy Agency, inputs/technology_data_for_el_and_dh.xlsx","44 Natural Gas DH Only:  Total efficiency , net, annual average",2015.0
+decentral CHP,2025,lifetime,25.0,years,HP, from old pypsa cost assumptions,2015.0
+decentral CHP,2025,investment,1481.5103,EUR/kWel,HP, from old pypsa cost assumptions,2015.0
+decentral CHP,2025,FOM,3.0,%/year,HP, from old pypsa cost assumptions,2015.0
+decentral CHP,2025,discount rate,0.04,per unit,Palzer thesis, from old pypsa cost assumptions,2015.0
+central CHP,2025,lifetime,25.0,years,HP,,
+central CHP,2025,investment,650.0,EUR/kWel,HP,,2013.0
+central CHP,2025,FOM,3.0,%/year,HP,,2013.0
+decentral solar thermal,2025,discount rate,0.04,per unit,Palzer thesis, from old pypsa cost assumptions,2015.0
+decentral solar thermal,2025,FOM,1.3,%/year,HP, from old pypsa cost assumptions,2015.0
+decentral solar thermal,2025,investment,285719.8393,EUR/1000m2,HP, from old pypsa cost assumptions,2015.0
+decentral solar thermal,2025,lifetime,20.0,years,HP, from old pypsa cost assumptions,2015.0
+central solar thermal,2025,FOM,1.4,%/year,HP, from old pypsa cost assumptions,2015.0
+central solar thermal,2025,investment,148151.0278,EUR/1000m2,HP, from old pypsa cost assumptions,2015.0
+central solar thermal,2025,lifetime,20.0,years,HP, from old pypsa cost assumptions,2015.0
+HVAC overhead,2025,investment,442.1414,EUR/MW/km,"Hagspiel et al. (2014): doi:10.1016/j.energy.2014.01.025 , table A.2 .",,2011.0
+HVAC overhead,2025,lifetime,40.0,years,"Hagspiel et al. (2014): doi:10.1016/j.energy.2014.01.025 , table A.2 .",,2011.0
+HVAC overhead,2025,FOM,2.0,%/year,"Hagspiel et al. (2014): doi:10.1016/j.energy.2014.01.025 , table A.2 .",,2011.0
+HVDC overhead,2025,investment,442.1414,EUR/MW/km,"Hagspiel et al. (2014): doi:10.1016/j.energy.2014.01.025 , table A.2 .",,2011.0
+HVDC overhead,2025,lifetime,40.0,years,"Hagspiel et al. (2014): doi:10.1016/j.energy.2014.01.025 , table A.2 .",,2011.0
+HVDC overhead,2025,FOM,2.0,%/year,"Hagspiel et al. (2014): doi:10.1016/j.energy.2014.01.025 , table A.2 .",,2011.0
+HVDC submarine,2025,investment,1008.2934,EUR/MW/km,Härtel et al. (2017): https://doi.org/10.1016/j.epsr.2017.06.008 .,Table 1,2017.0
+HVDC submarine,2025,lifetime,40.0,years,Purvins et al. (2018): https://doi.org/10.1016/j.jclepro.2018.03.095 .,"Based on estimated costs for a NA-EU connector (bidirectional,4 GW, 3000km length and ca. 3000m depth). Costs in return based on existing/currently under construction undersea cables.",2018.0
+HVDC submarine,2025,FOM,0.35,%/year,Purvins et al. (2018): https://doi.org/10.1016/j.jclepro.2018.03.095 .,"Based on estimated costs for a NA-EU connector (bidirectional,4 GW, 3000km length and ca. 3000m depth). Costs in return based on existing/currently under construction undersea cables.",2018.0
+HVDC inverter pair,2025,investment,165803.0398,EUR/MW,"Hagspiel et al. (2014): doi:10.1016/j.energy.2014.01.025 , table A.2 .",,2011.0
+HVDC inverter pair,2025,lifetime,40.0,years,"Hagspiel et al. (2014): doi:10.1016/j.energy.2014.01.025 , table A.2 .",,2011.0
+HVDC inverter pair,2025,FOM,2.0,%/year,"Hagspiel et al. (2014): doi:10.1016/j.energy.2014.01.025 , table A.2 .",,2011.0
+csp-tower,2025,FOM,1.4,%/year,ATB CSP data (https://atb.nrel.gov/electricity/2021/concentrating_solar_power),Ratio between CAPEX and FOM from ATB database for “moderate” scenario.,2020.0
+csp-tower,2025,investment,99.38,"EUR/kW_th,dp",ATB CSP data (https://atb.nrel.gov/electricity/2021/concentrating_solar_power) and NREL SAM v2021.12.2 (https://sam.nrel.gov/).,"Based on NREL’s SAM (v2021.12.2) numbers for a CSP power plant, 2020 numbers. CAPEX degression (=learning) taken from ATB database (“moderate”) scenario. Costs include solar field and solar tower as well as EPC cost for the default installation size (104 MWe plant). Total costs (223,708,924 USD) are divided by active area (heliostat reflective area, 1,269,054 m2) and multiplied by design point DNI (0.95 kW/m2) to obtain EUR/kW_th. Exchange rate: 1.16 USD to 1 EUR.",2020.0
+csp-tower,2025,lifetime,30.0,years,ATB CSP data (https://atb.nrel.gov/electricity/2021/concentrating_solar_power),-,2020.0
+csp-tower TES,2025,FOM,1.4,%/year,see solar-tower.,-,2020.0
+csp-tower TES,2025,investment,13.32,EUR/kWh_th,ATB CSP data (https://atb.nrel.gov/electricity/2021/concentrating_solar_power) and NREL SAM v2021.12.2 (https://sam.nrel.gov/).,"Based on NREL’s SAM (v2021.12.2) numbers for a CSP power plant, 2020 numbers. CAPEX degression (=learning) taken from ATB database (“moderate”) scenario. Costs include the TES incl. EPC cost for the default installation size (104 MWe plant, 2.791 MW_th TES). Total costs (69390776.7 USD) are divided by TES size to obtain EUR/kW_th. Exchange rate: 1.16 USD to 1 EUR.",2020.0
+csp-tower TES,2025,lifetime,30.0,years,see solar-tower.,-,2020.0
+csp-tower power block,2025,FOM,1.4,%/year,see solar-tower.,-,2020.0
+csp-tower power block,2025,investment,696.2,EUR/kWel,ATB CSP data (https://atb.nrel.gov/electricity/2021/concentrating_solar_power) and NREL SAM v2021.12.2 (https://sam.nrel.gov/).,"Based on NREL’s SAM (v2021.12.2) numbers for a CSP power plant, 2020 numbers. CAPEX degression (=learning) taken from ATB database (“moderate”) scenario. Costs include the power cycle incl. BOP and EPC cost for the default installation size (104 MWe plant). Total costs (135185685.5 USD) are divided by power block nameplate capacity size to obtain EUR/kW_e. Exchange rate: 1.16 USD to 1 EUR.",2020.0
+csp-tower power block,2025,lifetime,30.0,years,see solar-tower.,-,2020.0
