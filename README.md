@@ -100,17 +100,16 @@ The workflows were tested on Python 3.10.13 with PyPSA‑Earth v.0.3.0 and Snake
 ## 3) Repository Structure
 
 This repository follows a modular structure consistent with PyPSA‑Earth.  
-Below is a description of the main folders and their purpose:
+Below is a description of the main folders/files and their purpose:
 
-- **config/**  
-  Contains all scenario configuration files (Base, Sudden, Gradual + NZE variants).  
-  Each config overrides PyPSA‑Earth defaults for fuel prices, emission caps, and Bolivian system parameters.
+- **config.yaml**  
+  PyPSA-Earths configuration file (v.0.3.0) modified for PyPSA-Earth-BO.
 
 - **custom_files/**  
   Bolivia‑specific input data that replaces or extends PyPSA‑Earth defaults.  
   Includes updated power plant lists (CNDC), fuel prices, corrected demand distribution, hydro inflows, and technology cost assumptions.
 
-- **network/**  
+- **networks/**  
   Pre‑processed 101‑node Bolivian network used as input for all scenario runs.
 
 - **run_scripts/**  
@@ -124,11 +123,8 @@ Below is a description of the main folders and their purpose:
   Jupyter notebooks and helper scripts used to reproduce all figures and tables in the paper.  
   The main notebooks are `analysis.ipynb` where .csv-files are created for the scenarios and plots notebooks where all the plots from the paper can be created with the .csv-files created in `analysis.ipynb`.
 
-- **environment.yaml**  
+- **envs/environment.yaml**  
   Environment specification for reproducibility.
-
-- **results/**
-  Stores model outputs when scenarios are executed.
 
 ## 4) Configuration & Custom Files
 
