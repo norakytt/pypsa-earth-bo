@@ -673,13 +673,6 @@ def reliability_constraint_storage(n, matrix):
                 define_constraints(n, lhs, "=", rhs, "Storage", "reliability_storage_constraint")
 
 
-# line_matrix = pd.read_csv("C:/Users/noraky/Documents/Masteroppgave/pypsa-earth/matrices/lines_matrix.csv", index_col=0)
-# generator_matrix = pd.read_csv("C:/Users/noraky/Documents/Masteroppgave/pypsa-earth/matrices/generators_matrix.csv", index_col=0)
-# storage_unit_matrix = pd.read_csv("C:/Users/noraky/Documents/Masteroppgave/pypsa-earth/matrices/storage_units_matrix.csv", index_col=0)
-# line_matrix.index = pd.to_datetime(line_matrix.index)
-# generator_matrix.index = pd.to_datetime(generator_matrix.index)
-# storage_unit_matrix.index = pd.to_datetime(storage_unit_matrix.index)
-
 def extra_functionality(n, snapshots):
     """
     Collects supplementary constraints which will be passed to
