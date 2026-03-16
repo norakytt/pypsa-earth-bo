@@ -41,11 +41,9 @@ data/
 diverse/
 figures/
 logs/*
-networks/
 resources/
 result_data/
 result_dfs/
-results/
 run_scripts/
 custom_files/old/
 sudden_4/
