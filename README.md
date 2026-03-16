@@ -66,7 +66,7 @@ The installation and requirements are equal to those of pypsa-earth:
 2. The python package requirements are found in environment.yaml. The environment can be installed like this:
 
     ```bash
-    .../pypsa-earth % conda env create -f environment.yaml
+    .../pypsa-earth % conda env create -f envs/environment.yaml
     ```
 
 3. In step 2, three solvers are installed: HiGHs, glpk and gurobi. For this paper we have used gurobi.
