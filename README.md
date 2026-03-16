@@ -33,12 +33,7 @@ This repository provides the complete modeling framework used to generate these 
 
 ## 2) Installation and Requirements
 
-### 2.1 PyPSA-Earth Installation
-
-Follow the official PyPSA-Earth installation instructions:
-<https://pypsa-earth.readthedocs.io/>
-
-### 2.2 Our Modified PyPSA-Earth Version
+### 2.1 PyPSA-Earth-BO Information
 
 This project uses a **custom fork of PyPSA-Earth v.0.3.0**, which is extended to:
 
@@ -51,6 +46,50 @@ This project uses a **custom fork of PyPSA-Earth v.0.3.0**, which is extended to
 - integrate revised hydro inflows and reservoir storage
 
 Paper source for model extensions: Kyte et al. 2026.
+
+More information about PyPSA-Earth can be found here:
+
+- [PyPSA-Earth documentation](https://pypsa-earth.readthedocs.io/en/latest/)
+
+- [PyPSA-Earth repository](https://github.com/pypsa-meets-earth/pypsa-earth/tree/main)
+
+### 2.2 PyPSA-Earth-BO Installation
+
+The installation and requirements are equal to those of pypsa-earth:
+
+1. Open the terminal and go to a folder where you want to install pypsa-earth-BO. To download the package from github type the following:
+
+    ```bash
+    .../some/path/without/spaces % git clone https://github.com/norakytt/pypsa-earth-bo.git
+    ```
+
+2. The python package requirements are found in environment.yaml. The environment can be installed like this:
+
+    ```bash
+    .../pypsa-earth % conda env create -f environment.yaml
+    ```
+
+3. In step 2, three solvers are installed: HiGHs, glpk and gurobi. For this paper we have used gurobi.
+
+4. To use jupyter lab (new jupyter notebooks) **continue** with the [ipython kernel installation](http://echrislynch.com/2019/02/01/adding-an-environment-to-jupyter-notebooks/) and test if your jupyter lab works:
+
+   ```bash
+   .../pypsa-earth % ipython kernel install --user --name=pypsa-earth
+   .../pypsa-earth % jupyter lab
+
+5. Verify or install a java redistribution from the [official website](https://www.oracle.com/java/technologies/downloads/) or equivalent. To verify the successful installation the following code can be tested from bash:
+
+   ```bash
+   .../pypsa-earth % java -version
+   ```
+
+   The expected output should resemble the following:
+
+   ```bash
+   java version "1.8.0_341"
+   Java(TM) SE Runtime Environment (build 1.8.0_341-b10)
+   Java HotSpot(TM) 64-Bit Server VM (build 25.341-b10, mixed mode)
+   ```
 
 ### 2.3 Tested Environment
 
@@ -108,9 +147,7 @@ A complete run of the snakemake workflow will overwrite most of these files. Aft
 
 ## 5) Prepare Before Scenario Runs
 
-Build initial network by following the PyPSA-Earth documentation.
-
-By cloning this repository, the custom files are available - but you need to replace the files as described in the table above.
+By cloning this repository, the custom files above are available.
 
 Changes to the config.yaml-file and the model compared to PyPSA-Earth v.0.3.0 should remain as in this repository.
 
@@ -119,12 +156,14 @@ Before each scenario run, ensure that the `networks/` folder is cleared. PyPSAâ€
 Then run:
 
 ```bash
-snakemake -j1 solve_all_networks
+snakemake -j 1 solve_all_networks
 ```
 
-## 6) Main Scenario Runs
+## 6) Scenario Runs
 
-After the a successful installation and configuration of PyPSA-Earth-BO, you are ready to run the different scenarios. These are ready to run, and the results will appear after the run in their respective results folders as described in the run scripts.
+### 6.1 Main scenarios runs
+
+After a successful installation and configuration of PyPSA-Earth-BO, you are ready to run the different scenarios. These are ready to run, and the results will appear after the run in their respective results folders as described in the run scripts.
 
 To generate results the run scripts need a complete network file `networks/elec_s_all_ec_lcopt_Co2L-1H.nc` (all nodes scenarios) or `networks/elec_s_4_ec_lcopt_Co2L-1H.nc` (4 nodes scenario) to run. By completing the snakemake workflow, this file should appear in the `netwoks/` folder.
 
@@ -137,7 +176,7 @@ To generate results the run scripts need a complete network file `networks/elec_
 | Gradual Cost | `run_scrips/run_gradual.py` |
 | Gradual Cost NZE | `run_scrips/run_gradual_nze.py` |
 
-## 7) Sensitivity Runs
+### 6.2 Sensitivity Runs
 
 | Sensitivity Analysis | Scenario | Run Script |
 | ------ | ------ | ------------- |
