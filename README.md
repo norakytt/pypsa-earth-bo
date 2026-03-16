@@ -21,8 +21,6 @@ This repository implements all six long‑term transition scenarios evaluated in
   - Net‑Zero Emissions (NZE) pathway consistent with IPCC
 - **System costs, emissions, generation mix, and capacity expansion**
 
-The study finds that Bolivia can save **up to €2.5 billion** by 2040 by reforming subsidies, while simultaneously enabling higher renewable penetration and reducing CO₂ emissions.  
-
 This repository provides the complete modeling framework used to generate these results, including:
 
 - PyPSA‑Earth‑BO (Bolivia‑optimized model)
@@ -38,7 +36,7 @@ This repository provides the complete modeling framework used to generate these 
 ### 2.1 PyPSA-Earth Installation
 
 Follow the official PyPSA-Earth installation instructions:
-<https://pypsa-earth.readthedocs.io/en/latest/installation.html>
+<https://pypsa-earth.readthedocs.io/>
 
 ### 2.2 Our Modified PyPSA-Earth Version
 
@@ -56,7 +54,7 @@ Paper source for model extensions: Kyte et al. 2026.
 
 ### 2.3 Tested Environment
 
-The workflows were tested on Python 3.10.13 with PyPSA‑Earth v0.3.0 and Snakemake 7.32.4.
+The workflows were tested on Python 3.10.13 with PyPSA‑Earth v.0.3.0 and Snakemake 7.32.4.
 
 ## 3) Repository Structure
 
