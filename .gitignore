@@ -18,6 +18,9 @@
 
 # Untracked files
 dag.svg
+notater.txt
+create_new_cost_files.py
+line_cap.ipynb
 
 # Files appear for tests
 configs/scenarios/config.custom.yaml
@@ -30,31 +33,19 @@ data/*.geojson
 .snakemake/metadata/*
 .snakemake/shadow/*
 analysis_montecarlo/
-analysis_scripts/
-base_007_load/
-base_010_load/
-base_2011/
-base_2018/
-base_cost/
-base_cost_load/
-base_load/
-base_nze_2025_correct/
+analysis_scripts/old_analysis_scripts/
+analysis_scripts/reliability/
 benchmarks/
 cutouts/
 data/
 diverse/
 figures/
-gradual_007/
-gradual_010/
-gradual_2025_correct/
-gradual_cost/
-gradual_nze_2025_correct/
 logs/*
-networks/
 resources/
 result_data/
 result_dfs/
-results/
+run_scripts/
+custom_files/old/
 sudden_4/
 sudden_007/
 sudden_010/
@@ -63,6 +54,7 @@ sudden_2018/
 sudden_2025_correct/
 sudden_cost/
 sudden_nze_2025_correct/
+final_results/
 
 configs/scenarios/config.*.yaml
 !configs/scenarios/config.NG.yaml
