@@ -79,7 +79,7 @@ The installation and requirements are equal to those of pypsa-earth:
     .../pypsa-earth % mamba env create -f envs/environment.yaml
     ```
 
-    *If this environment does not work, compare the package versions with those in `envs/environment.fixed.yaml`*
+    *If this environment does not work, compare the package versions with those in `envs/environment_fixed.yaml`*
 
 4. In step 2, three solvers are installed: HiGHs, glpk and gurobi. For this paper we have used gurobi. For running the optimization one has to install the chosen solver.
 
