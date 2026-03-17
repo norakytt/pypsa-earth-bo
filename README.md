@@ -148,7 +148,7 @@ A complete run of the snakemake workflow will overwrite most of these files. Aft
 | **Technology costs** | Updated CAPEX/OPEX for gas, diesel, biomass based on Bolivian data. Gas = 4.3 €/MWh, oil = 14.27 €/MWh, biomass = 1 €/MWh. | `custom_files/costs.csv` (replaces `resources/costs.csv`) |
 | **Demand distribution & growth** | Replaces PyPSA‑Earth default demand with CNDC 2022 nodal distribution + projected growth. | `custom_files/demand_profiles.csv` (replaces `resources/demand_profiles.csv`) |
 | **Hydropower inflows** | Reconstructed inflow series using seasonal CNDC patterns; reservoir storage updated from 6h → 1352h. | `custom_files/profile_hydro.nc` (replaces `resources/renewable_profiles/profile_hydro.nc`) |
-| **Emission caps (NZE)** | CO₂ budget consistent with IPCC NZE‑2050; activated in NZE run‑scripts. | Implemented in `run_scripts/*_nze.py` |
+| **Emission caps (NZE)** | CO₂ budget consistent with IPCC NZE‑2050; activated in NZE run‑scripts. | Implemented in `[scenario]_nze.py` |
 | **Capacity constraints** | Max 400 MW/year new capacity; 100 MW/year geothermal; upper bounds for biomass/geothermal; yearly biomass CF constraint. | Implemented in `scripts/solve_all_networks.py` |
 | **Custom grid topology** | Corrected substations and transmission lines; replaces incomplete OSM data. | `custom_files/custom_substations1.geojson` and `custom_files/custom_lines1.geojson` (referenced in `config.yaml`) |
 | **Power plant database** | Updated 2022 CNDC power plant list; includes solar/wind shells and extendable hydro + geothermal potentials. | `custom_files/custom_powerplants.csv` (placed in `data/`) |
