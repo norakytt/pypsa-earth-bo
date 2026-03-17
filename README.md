@@ -114,7 +114,7 @@ Below is a description of the main folders/files and their purpose:
 
 - **run_scripts/**  
   Python scripts that trigger each scenario (Base, Sudden, Gradual) and the NZE versions.  
-  These scripts load the correct config file and set scenario‑specific switches. Also contains scripts for sensitivity analyses (weather years, discount rate, gas price, technology cost, 4‑node comparison).
+  These scripts load the correct parameters for each scenario. The folder also contains scripts and guides for sensitivity analyses (weather years, discount rate, gas price, technology cost, 4‑node comparison).
 
 - **test_runs/**  
   Configured folder to place results from the runs_scripts.
