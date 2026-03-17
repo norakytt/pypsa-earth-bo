@@ -71,6 +71,8 @@ The installation and requirements are equal to those of pypsa-earth:
     .../pypsa-earth % conda env create -f envs/environment.yaml
     ```
 
+*If this environment does not work, compare the package versions with those in `envs/environment.fixed.env`"*
+
 4. In step 2, three solvers are installed: HiGHs, glpk and gurobi. For this paper we have used gurobi.
 
 5. To use jupyter lab (new jupyter notebooks) **continue** with the [ipython kernel installation](http://echrislynch.com/2019/02/01/adding-an-environment-to-jupyter-notebooks/) and test if your jupyter lab works:
