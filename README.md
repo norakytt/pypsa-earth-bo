@@ -71,6 +71,14 @@ The installation and requirements are equal to those of pypsa-earth:
     .../pypsa-earth % conda env create -f envs/environment.yaml
     ```
 
+    If the above takes longer than 30 min, you might want to try mamba for faster installation:
+
+    ```bash
+    (base) conda install -c conda-forge mamba
+
+    .../pypsa-earth % mamba env create -f envs/environment.yaml
+    ```
+
     *If this environment does not work, compare the package versions with those in `envs/environment.fixed.yaml`"*
 
 4. In step 2, three solvers are installed: HiGHs, glpk and gurobi. For this paper we have used gurobi.
