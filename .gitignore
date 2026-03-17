@@ -26,6 +26,9 @@ data/*.geojson
 data/eia_hydro_annual_generation.csv
 resources/costs.csv
 resources/natura.tiff
+envs/environment_fixed2.yaml
+envs/environment_final.yaml
+envs/spec-file.txt
 
 # Untracked folders (and files within)
 .snakemake/incomplete/*
@@ -66,6 +69,7 @@ sudden_cost/
 sudden_nze_2025_correct/
 final_results/
 old_files/
+run_scripts/
 
 configs/scenarios/config.*.yaml
 !configs/scenarios/config.NG.yaml

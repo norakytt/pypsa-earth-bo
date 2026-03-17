@@ -71,7 +71,7 @@ The installation and requirements are equal to those of pypsa-earth:
     .../pypsa-earth % conda env create -f envs/environment.yaml
     ```
 
-4. In step 2, three solvers are installed: HiGHs, glpk and gurobi. For this paper we have used gurobi.
+4. In step 2, three solver packages are installed: HiGHs, glpk and gurobi. For this paper we have used gurobi. For running the optimization one has to install the chosen solver.
 
 5. To use jupyter lab (new jupyter notebooks) **continue** with the [ipython kernel installation](http://echrislynch.com/2019/02/01/adding-an-environment-to-jupyter-notebooks/) and test if your jupyter lab works:
 
@@ -112,7 +112,7 @@ Below is a description of the main folders/files and their purpose:
 - **networks/**  
   Pre‑processed 101‑node Bolivian network used as input for all scenario runs.
 
-- **run_scripts/**  
+- **run_[scenario].py**  
   Python scripts that trigger each scenario (Base, Sudden, Gradual) and the NZE versions.  
   These scripts load the correct config file and set scenario‑specific switches. Also contains scripts for sensitivity analyses (weather years, discount rate, gas price, technology cost, 4‑node comparison).
 
@@ -157,6 +157,8 @@ Then run:
 snakemake -j 1 solve_all_networks
 ```
 
+(The number dictates the number of CPU cores allocated for the process.)
+
 ## 6) Scenario Runs
 
 ### 6.1 Main scenarios runs
@@ -167,39 +169,39 @@ To generate results the run scripts need a complete network file `networks/elec_
 
 | Scenario | Run Script |
 | ------ | ------------- |
-| Base | `run_scrips/run_base.py` |
-| Base NZE | `run_scrips/run_base_nze.py` |
-| Sudden Cost | `run_scrips/run_sudden.py` |
-| Sudden Cost NZE | `run_scrips/run_sudden_nze.py` |
-| Gradual Cost | `run_scrips/run_gradual.py` |
-| Gradual Cost NZE | `run_scrips/run_gradual_nze.py` |
+| Base | `run_base.py` |
+| Base NZE | `run_base_nze.py` |
+| Sudden Cost | `run_sudden.py` |
+| Sudden Cost NZE | `run_sudden_nze.py` |
+| Gradual Cost | `run_gradual.py` |
+| Gradual Cost NZE | `run_gradual_nze.py` |
 
 ### 6.2 Sensitivity Runs
 
 | Sensitivity Analysis | Scenario | Run Script |
 | ------ | ------ | ------------- |
-| Weather | Base 2011 | `run_scrips/run_base.py`, change weather configuration as described in run script |
-| | Base 2018 | `run_scrips/run_base.py`, change weather configuration as described in run script |
-| | Sudden 2011 | `run_scrips/run_sudden.py`, change weather configuration as described in run script |
-| | Sudden 2018 | `run_scrips/run_sudden.py`, change weather configuration as described in run script |
+| Weather | Base 2011 | `run_base.py`, change weather configuration as described in run script |
+| | Base 2018 | `run_base.py`, change weather configuration as described in run script |
+| | Sudden 2011 | `run_sudden.py`, change weather configuration as described in run script |
+| | Sudden 2018 | `run_sudden.py`, change weather configuration as described in run script |
 | | | |
-| Technology cost | Base Cost Sensitivity | `run_scrips/run_cost_sensitivity_base.py` |
-| | Sudden Cost Sensitivity | `run_scrips/run_cost_sensitivity_sudden.py` |
-| | Gradual Cost Sensitivity | `run_scrips/run_cost_sensitivity_gradual.py` |
+| Technology cost | Base Cost Sensitivity | `run_cost_sensitivity_base.py` |
+| | Sudden Cost Sensitivity | `run_cost_sensitivity_sudden.py` |
+| | Gradual Cost Sensitivity | `run_cost_sensitivity_gradual.py` |
 | | | |
-| Discount rate | Base 7% | `run_scrips/run_base.py`, change discount rate configuration as described in run script |
-| | Base 10% | `run_scrips/run_base.py`, change discount rate configuration as described in run script |
-| | Sudden 7% | `run_scrips/run_sudden.py`, change discount rate configuration as described in run script |
-| | Sudden 10% | `run_scrips/run_sudden.py`, change discount rate configuration as described in run script |
-| | Gradual 7% | `run_scrips/run_gradual.py`, change discount rate configuration as described in run script |
-| | Gradual 10% | `run_scrips/run_gradual.py`, change discount rate configuration as described in run script |
+| Discount rate | Base 7% | `run_base.py`, change discount rate configuration as described in run script |
+| | Base 10% | `run_base.py`, change discount rate configuration as described in run script |
+| | Sudden 7% | `run_sudden.py`, change discount rate configuration as described in run script |
+| | Sudden 10% | `run_sudden.py`, change discount rate configuration as described in run script |
+| | Gradual 7% | `run_gradual.py`, change discount rate configuration as described in run script |
+| | Gradual 10% | `run_gradual.py`, change discount rate configuration as described in run script |
 | | | |
 | Gas Price | Base low gas prices | N/A, static gas price. Subsidy calculations from original scenario run |
 | | Base high gas prices | N/A, static gas price. Subsidy calculations from original scenario run |
-| | Sudden low gas prices | `run_scrips/run_sudden_gas_price_low.py` |
-| | Sudden high gas prices | `run_scrips/run_sudden_gas_price_high.py` |
+| | Sudden low gas prices | `run_sudden_gas_price_low.py` |
+| | Sudden high gas prices | `run_sudden_gas_price_high.py` |
 | | | |
-| Nodes | Gradual NZE 4 nodes | `run_scrips/run_gradual_nze_4_nodes.py` |
+| Nodes | Gradual NZE 4 nodes | `run_gradual_nze_4_nodes.py` |
 
 ## 8) Analyze Results
 
