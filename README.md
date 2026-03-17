@@ -131,7 +131,7 @@ Below is a description of the main folders/files and their purpose:
 PyPSA‑Earth‑BO relies on a set of Bolivia‑specific configuration changes and custom input files.  
 The table below summarises all modifications, including where each change is implemented and which custom file it depends on.
 
-A complete run of the snakemake workflow will overwrite most of these files. After a full and successful workflow, the rule categories "Download and Filter" and "Populate Data" are done and should not overwrite the data. However, after running these rules, the custom files must manually replace the default files as decribed in the tabel below.
+A complete run of the snakemake workflow will overwrite most of these files. After a full and successful workflow, the rule categories "Download and Filter" and "Populate Data" are done and should not overwrite the data.
 
 | Component / Adjustment | Description | File / Location |
 | ------------------------ | ------------- | ------------------ |
