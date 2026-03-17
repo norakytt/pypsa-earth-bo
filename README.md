@@ -71,7 +71,17 @@ The installation and requirements are equal to those of pypsa-earth:
     .../pypsa-earth % conda env create -f envs/environment.yaml
     ```
 
-4. In step 2, three solver packages are installed: HiGHs, glpk and gurobi. For this paper we have used gurobi. For running the optimization one has to install the chosen solver.
+    If the above takes longer than 30 min, you might want to try mamba for faster installation:
+
+    ```bash
+    (base) conda install -c conda-forge mamba
+
+    .../pypsa-earth % mamba env create -f envs/environment.yaml
+    ```
+
+    *If this environment does not work, compare the package versions with those in `envs/environment.fixed.yaml`*
+
+4. In step 2, three solvers are installed: HiGHs, glpk and gurobi. For this paper we have used gurobi. For running the optimization one has to install the chosen solver.
 
 5. To use jupyter lab (new jupyter notebooks) **continue** with the [ipython kernel installation](http://echrislynch.com/2019/02/01/adding-an-environment-to-jupyter-notebooks/) and test if your jupyter lab works:
 
@@ -114,7 +124,7 @@ Below is a description of the main folders/files and their purpose:
 
 - **run_[scenario].py**  
   Python scripts that trigger each scenario (Base, Sudden, Gradual) and the NZE versions.  
-  These scripts load the correct config file and set scenario‑specific switches. Also contains scripts for sensitivity analyses (weather years, discount rate, gas price, technology cost, 4‑node comparison).
+  These scripts load the correct parameters for each scenario. The folder also contains scripts and guides for sensitivity analyses (weather years, discount rate, gas price, technology cost, 4‑node comparison).
 
 - **test_runs/**  
   Configured folder to place results from the runs_scripts.
@@ -131,7 +141,7 @@ Below is a description of the main folders/files and their purpose:
 PyPSA‑Earth‑BO relies on a set of Bolivia‑specific configuration changes and custom input files.  
 The table below summarises all modifications, including where each change is implemented and which custom file it depends on.
 
-A complete run of the snakemake workflow will overwrite most of these files. After a full and successful workflow, the rule categories "Download and Filter" and "Populate Data" are done and should not overwrite the data. However, after running these rules, the custom files must manually replace the default files as decribed in the tabel below.
+A complete run of the snakemake workflow will overwrite most of these files. After a full and successful workflow, the rule categories "Download and Filter" and "Populate Data" are done and should not overwrite the data.
 
 | Component / Adjustment | Description | File / Location |
 | ------------------------ | ------------- | ------------------ |
