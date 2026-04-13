@@ -131,7 +131,7 @@ Below is a description of the main folders/files and their purpose:
 
 - **analysis_scripts/**  
   Jupyter notebooks used to reproduce all figures and tables in the paper.  
-  The notebooks are `data_processing_test.ipynb` and `data_processing_original` where csv-files are created for the scenarios and the `plots.ipynb` notebook where all the plots from the paper can be created with the csv-files created in the data processing notebooks.
+  The notebooks are `data_processing_test.ipynb` and `data_processing_original` where csv-files are created for the scenarios, and the `plots.ipynb` notebook where all the plots from the paper are generated.
 
 - **envs/environment.yaml**  
   Environment specification for reproducibility.
@@ -215,11 +215,7 @@ To generate results the run scripts need a complete network file `networks/elec_
 
 ## 7) Analyze Results
 
-### 7.1 Quick Test Plot
-
-Before running the full analysis, you can verify that a scenario run was successful by using the `plots_single.ipynb` notebook to generate a single figure from one scenario. This allows you to quickly check the results and confirm everything is working properly before proceeding with the complete analysis.
-
-### 7.2 Full Analysis
+### 7.1 Full Analysis
 
 To analyze the results and replicate the relevant tables and figures in the paper, you can either:
 
@@ -228,9 +224,13 @@ To analyze the results and replicate the relevant tables and figures in the pape
 
 Based on which method you are choosing, you then run the respective data processing notebooks:
 
-- `data_processing_test.ipynb`: Processes new test runs (saved in `test_runs/` folder) into csv-files
-- `data_processing_original.ipynb`: Processes results from original paper analyses (stored in `paper_results/` folder) into csv-files
+- `data_processing_test.ipynb`: Processes new test runs (saved in `test_runs/` folder) into csv-files.
+- `data_processing_original.ipynb`: Processes results from original paper analyses (stored in `paper_results/` folder) into csv-files.
 
-NB: the same csv-files are updated when you run either of the data processing notebooks
+NB: *the same csv-files are updated when you run either of the data processing notebooks.*
 
-Then run the `plots.ipynb` notebook to generate all relevant tables and figures from the paper automatically.
+**Then run the `plots.ipynb` notebook to generate all relevant tables and figures from the paper automatically.**
+
+### 7.2 Quick Test Plot
+
+Before running the full analysis, you can verify that a scenario run was successful by using the `plots_single.ipynb` notebook to generate a single figure from one scenario. This allows you to quickly check the results and confirm everything is working properly before proceeding with the complete analysis.
