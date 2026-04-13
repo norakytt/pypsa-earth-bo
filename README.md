@@ -130,8 +130,8 @@ Below is a description of the main folders/files and their purpose:
   Configured folder to place results from the runs_scripts.
 
 - **analysis_scripts/**  
-  Jupyter notebooks and helper scripts used to reproduce all figures and tables in the paper.  
-  The main notebooks are `analysis.ipynb` where .csv-files are created for the scenarios and plots notebooks where all the plots from the paper can be created with the .csv-files created in `analysis.ipynb`.
+  Jupyter notebooks used to reproduce all figures and tables in the paper.  
+  The notebooks are `data_processing_test.ipynb` and `data_processing_original` where csv-files are created for the scenarios and the `plots.ipynb` notebook where all the plots from the paper can be created with the csv-files created in the data processing notebooks.
 
 - **envs/environment.yaml**  
   Environment specification for reproducibility.
@@ -173,7 +173,7 @@ snakemake -j 1 solve_all_networks
 
 ### 6.1 Main scenarios runs
 
-After a successful installation and configuration of PyPSA-Earth-BO, you are ready to run the different scenarios. These are ready to run, and the results will appear after the run in their respective results folders as described in the run scripts.
+After a successful installation and configuration of PyPSA-Earth-BO, you are ready to run the different scenarios. These are ready to run, and the results will appear after the run in their respective results folders in the `test_runs` folder as described in the run scripts.
 
 To generate results the run scripts need a complete network file `networks/elec_s_all_ec_lcopt_Co2L-1H.nc` (all nodes scenarios) or `networks/elec_s_4_ec_lcopt_Co2L-1H.nc` (4 nodes scenario) to run. By completing the snakemake workflow, this file should appear in the `netwoks/` folder.
 
@@ -213,14 +213,24 @@ To generate results the run scripts need a complete network file `networks/elec_
 | | | |
 | Nodes | Gradual NZE 4 nodes | `run_gradual_nze_4_nodes.py` |
 
-## 8) Analyze Results
+## 7) Analyze Results
 
-The following Jupyter Notebooks are included to replicate the analysis and plots from the paper.
+### 7.1 Quick Test Plot
 
-```bash
-analysis.ipynb
-plots.ipynb
-plots_gas.ipynb
-plots_costs.ipynb
-plots_discount.ipynb
-```
+Before running the full analysis, you can verify that a scenario run was successful by using the `plots_single.ipynb` notebook to generate a single figure from one scenario. This allows you to quickly check the results and confirm everything is working properly before proceeding with the complete analysis.
+
+### 7.2 Full Analysis
+
+To analyze the results and replicate the relevant tables and figures in the paper, you can either:
+
+1. Run all the scenarios as described above.
+2. Use the results files from the original analyses.
+
+Based on which method you are choosing, you then run the respective data processing notebooks:
+
+- `data_processing_test.ipynb`: Processes new test runs (saved in `test_runs/` folder) into csv-files
+- `data_processing_original.ipynb`: Processes results from original paper analyses (stored in `paper_results/` folder) into csv-files
+
+NB: the same csv-files are updated when you run either of the data processing notebooks
+
+Then run the `plots.ipynb` notebook to generate all relevant tables and figures from the paper automatically.
