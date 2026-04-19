@@ -4,8 +4,8 @@
 # NB! To run this scenario, you need to update config.py (clusters: [4]) and run snakemake to create an initial 4-node network file
 
 # Define scenario folder and name for saving results
-scen_folder = 'test_runs/test_gradual_nze/4_nodes'
-scen = 'test_GRADUAL_NZE_4'
+scen_folder = 'test_runs/gradual_NZE_4'
+scen = 'GNZE'
 
 # Import necessary libraries
 import pypsa

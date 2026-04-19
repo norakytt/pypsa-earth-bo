@@ -2,13 +2,8 @@
 # THIS FILE RUNS THE BASE NZE SCENARIO
 
 # Define scenario folder and name for saving results
-scen_folder = 'test_runs/test_base_nze'
-scen = 'test_BASE_NZE'
-
-# TO RUN WITH A DIFFERENT DISCOUNT RATE
-# In config.py, change the value of the variable "discount_rate" to the desired rate.
-# Change the resources/costs.csv file accordingly.
-# Change scen_folder and scen to 'test_runs/test_base_nze/discount_rate_<value>' and 'test_BASE_NZE_<value>' and create the folder, respectively to save the results in the correct folder.
+scen_folder = 'test_runs/base_NZE'
+scen = 'BNZE'
 
 # Import necesary libraries
 import pypsa
@@ -18,7 +13,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import subprocess
-#import hydro_extendable as hyd
 import math
 
 # Import network and load line capacity data

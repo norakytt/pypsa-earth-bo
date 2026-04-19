@@ -2,8 +2,8 @@
 # THIS FILE RUNS THE SUDDEN COST SCENARIO WITH LOW GAS PRICES FOR THE SENSITIVITY ANALYSIS
 
 # Define scenario folder and name for saving results
-scen_folder = 'test_runs/test_sudden/gas_price_low'
-scen = 'test_SUDDEN_GAS_PRICE_LOW'
+scen_folder = 'test_runs/sudden_gas_low'
+scen = 'S'
 
 # Import necessary libraries
 import pypsa
@@ -13,7 +13,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import subprocess
-#import hydro_extendable as hyd
 import math
 
 # Define network and load line capacity data

@@ -2,8 +2,8 @@
 # THIS FILE RUNS THE BASE SCENARIO
 
 # Define scenario folder and name for saving results
-scen_folder = 'test_runs/test_base'
-scen = 'test_BASE'
+scen_folder = 'test_runs/base'
+scen = 'B'
 
 # TO RUN A DIFFERENT WEATHER SCENARIO 
 # The default weather year we have used is 2013, to change the weather year do the following:
@@ -11,14 +11,13 @@ scen = 'test_BASE'
 # In resources/renewable_profiles, change the profiles of the different renewables. 
 # The current profile is based on the 2013-cutout, to change to 2011 or 2018 rename their files to profile_"renewable".nc - first you need to delete the current one.
 # To make other profiles, you need to build a new cutout - follow the PyPSA-Earth configuration documentation.
-# Change the scenario folder and name if changing the scenario, f.ex.:
-#scen_folder = 'test_runs/test_base/weather_2018'
-#scen = 'test_BASE_WEATHER_2018'
+# Change the scenario folder if changing the scenario, f.ex.:
+#scen_folder = 'test_runs/base_2018'
 
 # TO RUN WITH A DIFFERENT DISCOUNT RATE
 # In config.py, change the value of the variable "discount_rate" to the desired rate.
 # Change the resources/costs.csv file accordingly.
-# Change scen_folder and scen to 'test_runs/test_base_nze/discount_rate_<value>' and 'test_BASE_NZE_<value>' and create the folder, respectively to save the results in the correct folder.
+# Change scen_folder to 'test_runs/base_<value>' (<value> format 010 or 007) to save the results in the correct folder.
 
 # Import necessary libraries
 import pypsa
@@ -28,7 +27,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import subprocess
-#import hydro_extendable as hyd
 import math
 
 # Define network and load line capacity data

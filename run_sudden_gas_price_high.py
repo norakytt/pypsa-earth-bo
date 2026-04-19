@@ -2,8 +2,8 @@
 # THIS FILE RUNS THE SUDDEN COST SCENARIO WITH HIGH GAS PRICES FOR THE SENSITIVITY ANALYSIS
 
 # Define scenario folder and name for saving results
-scen_folder = 'test_runs/test_sudden/gas_price_high'
-scen = 'test_SUDDEN_GAS_PRICE_HIGH'
+scen_folder = 'test_runs/sudden_gas_high'
+scen = 'S'
 
 # Import necessary libraries
 import pypsa

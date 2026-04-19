@@ -5,8 +5,8 @@
 # This script switches costs.csv files over the horizon, every five years
 
 # Define scenario folder and scenario name
-scen_folder = 'test_runs/test_sudden/sudden_cost_sensitivity'
-scen = 'test_SUDDEN_cost_sensitivity'
+scen_folder = 'test_runs/sudden_cost'
+scen = 'S'
 
 # Import necessary libraries
 import pypsa
@@ -16,7 +16,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import subprocess
-#import hydro_extendable as hyd
 import math
 
 # Scaling factors for demand in the new costs scenario

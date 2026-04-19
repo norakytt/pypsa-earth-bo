@@ -2,13 +2,8 @@
 # THIS FILE RUNS THE SUDDEN COST NZE SCENARIO
 
 # Define scenario folder and name for saving results
-scen_folder = 'test_runs/test_sudden_nze'
-scen = 'test_SUDDEN_NZE'
-
-# TO RUN WITH A DIFFERENT DISCOUNT RATE
-# In config.py, change the value of the variable "discount_rate" to the desired rate.
-# Change the resources/costs.csv file accordingly.
-# Change scen_folder and scen to 'test_runs/test_base_nze/discount_rate_<value>' and 'test_BASE_NZE_<value>' and create the folder, respectively to save the results in the correct folder.
+scen_folder = 'test_runs/sudden_NZE'
+scen = 'SNZE'
 
 # Import necessary libraries
 import pypsa
