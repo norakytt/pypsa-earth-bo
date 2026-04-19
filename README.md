@@ -107,7 +107,16 @@ The installation and requirements are equal to those of pypsa-earth:
 
 The workflows were tested on Python 3.10.13 with PyPSA‑Earth v.0.3.0 and Snakemake 7.32.4.
 
-## 3) Repository Structure
+## 3) Data
+
+The full results dataset (~43 GB) is archived on Zenodo: https://doi.org/10.5281/zenodo.19056464
+
+The dataset contains the optimisation results for all scenarios and sensitivity analyses over the period 2024–2040 as presented in the paper, organised in zipped folders per scenario group.
+
+Download and unzip the results into the 'paper_results/' folder of this repository before running the analysis notebooks.
+To replicate results from scratch instead, follow Sections 5–6.
+
+## 4) Repository Structure
 
 This repository follows a modular structure consistent with PyPSA‑Earth.  
 Below is a description of the main folders/files and their purpose:
@@ -129,6 +138,9 @@ Below is a description of the main folders/files and their purpose:
 - **test_runs/**  
   Configured folder to place results from the runs_scripts.
 
+- **paper_results/**  
+  Original result files from the paper.
+
 - **analysis_scripts/**  
   Jupyter notebooks used to reproduce all figures and tables in the paper.  
   The notebooks are `data_processing_test.ipynb` and `data_processing_original` where csv-files are created for the scenarios, and the `plots.ipynb` notebook where all the plots from the paper are generated.
@@ -136,7 +148,7 @@ Below is a description of the main folders/files and their purpose:
 - **envs/environment.yaml**  
   Environment specification for reproducibility.
 
-## 4) Configuration & Custom Files
+## 5) Configuration & Custom Files
 
 PyPSA‑Earth‑BO relies on a set of Bolivia‑specific configuration changes and custom input files.  
 The table below summarises all modifications, including where each change is implemented and which custom file it depends on.
@@ -153,7 +165,7 @@ A complete run of the snakemake workflow will overwrite most of these files. Aft
 | **Custom grid topology** | Corrected substations and transmission lines; replaces incomplete OSM data. | `custom_files/custom_substations1.geojson` and `custom_files/custom_lines1.geojson` (referenced in `config.yaml`) |
 | **Power plant database** | Updated 2022 CNDC power plant list; includes solar/wind shells and extendable hydro + geothermal potentials. | `custom_files/custom_powerplants.csv` (placed in `data/`) |
 
-## 5) Prepare Before Scenario Runs
+## 6) Prepare Before Scenario Runs
 
 By cloning this repository, the custom files above are available.
 
@@ -169,9 +181,9 @@ snakemake -j 1 solve_all_networks
 
 (The number dictates the number of CPU cores allocated for the process.)
 
-## 6) Scenario Runs
+## 7) Scenario Runs
 
-### 6.1 Main scenarios runs
+### 7.1 Main scenarios runs
 
 After a successful installation and configuration of PyPSA-Earth-BO, you are ready to run the different scenarios. These are ready to run, and the results will appear after the run in their respective results folders in the `test_runs` folder as described in the run scripts.
 
@@ -186,7 +198,7 @@ To generate results the run scripts need a complete network file `networks/elec_
 | Gradual Cost | `run_gradual.py` |
 | Gradual Cost NZE | `run_gradual_nze.py` |
 
-### 6.2 Sensitivity Runs
+### 7.2 Sensitivity Runs
 
 | Sensitivity Analysis | Scenario | Run Script |
 | ------ | ------ | ------------- |
@@ -213,14 +225,14 @@ To generate results the run scripts need a complete network file `networks/elec_
 | | | |
 | Nodes | Gradual NZE 4 nodes | `run_gradual_nze_4_nodes.py` |
 
-## 7) Analyze Results
+## 8) Analyze Results
 
-### 7.1 Full Analysis
+### 8.1 Full Analysis
 
 To analyze the results and replicate the relevant tables and figures in the paper, you can either:
 
 1. Run all the scenarios as described above.
-2. Use the results files from the original analyses.
+2. Use the results files from the original analyses, available on Zenodo (see Section 3). Download and unzip into the `paper_results/` folder before running `data_processing_original.ipynb`.
 
 Based on which method you are choosing, you then run the respective data processing notebooks:
 
@@ -231,6 +243,8 @@ NB: *the same csv-files are updated when you run either of the data processing n
 
 **Then run the `plots.ipynb` notebook to generate all relevant tables and figures from the paper automatically.**
 
-### 7.2 Quick Test Plot
+NB: *any plots in "figures/ are updated when you run the 'plots.ipynb'.*
+
+### 8.2 Quick Test Plot
 
 Before running the full analysis, you can verify that a scenario run was successful by using the `plots_single.ipynb` notebook to generate a single figure from one scenario. This allows you to quickly check the results and confirm everything is working properly before proceeding with the complete analysis.
