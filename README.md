@@ -109,12 +109,12 @@ The workflows were tested on Python 3.10.13 with PyPSA‑Earth v.0.3.0 and Snake
 
 ## 3) Data
 
-The full results dataset (~43 GB) is archived on Zenodo: https://doi.org/10.5281/zenodo.19056464
+The full results dataset (~45 GB) is archived on Zenodo: https://doi.org/10.5281/zenodo.19056464
 
 The dataset contains the optimisation results for all scenarios and sensitivity analyses over the period 2024–2040 as presented in the paper, organised in zipped folders per scenario group.
 
 Download and unzip the results into the 'paper_results/' folder of this repository before running the analysis notebooks.
-To replicate results from scratch instead, follow Sections 5–6.
+To replicate results from scratch instead, follow Sections 6–7.
 
 ## 4) Repository Structure
 
@@ -139,7 +139,7 @@ Below is a description of the main folders/files and their purpose:
   Configured folder to place results from the runs_scripts.
 
 - **paper_results/**  
-  Original result files from the paper.
+  Folder to contain the original result files from the paper, downloaded as described in Section 3.
 
 - **analysis_scripts/**  
   Jupyter notebooks used to reproduce all figures and tables in the paper.  
@@ -179,7 +179,7 @@ Then run:
 snakemake -j 1 solve_all_networks
 ```
 
-(The number dictates the number of CPU cores allocated for the process.)
+(The number dictates the number of CPU cores allocated for the process, alter based on availability.)
 
 ## 7) Scenario Runs
 
@@ -187,7 +187,7 @@ snakemake -j 1 solve_all_networks
 
 After a successful installation and configuration of PyPSA-Earth-BO, you are ready to run the different scenarios. These are ready to run, and the results will appear after the run in their respective results folders in the `test_runs` folder as described in the run scripts.
 
-To generate results the run scripts need a complete network file `networks/elec_s_all_ec_lcopt_Co2L-1H.nc` (all nodes scenarios) or `networks/elec_s_4_ec_lcopt_Co2L-1H.nc` (4 nodes scenario) to run. By completing the snakemake workflow, this file should appear in the `netwoks/` folder.
+To generate results the run scripts need a complete network file `networks/elec_s_all_ec_lcopt_Co2L-1H.nc` (all nodes scenarios) or `networks/elec_s_4_ec_lcopt_Co2L-1H.nc` (4 nodes scenario) to run. By completing the snakemake workflow as described in Section 6, this file should appear in the `netwoks/` folder.
 
 | Scenario | Run Script |
 | ------ | ------------- |
@@ -242,6 +242,7 @@ Based on which method you are choosing, you then run the respective data process
 NB: *the same csv-files are updated when you run either of the data processing notebooks.*
 
 **Then run the `plots.ipynb` notebook to generate all relevant tables and figures from the paper automatically.**
+Change the results_folder variable on the top of the 'plots.ipynb' file based on which method you choose.
 
 NB: *any plots in "figures/ are updated when you run the 'plots.ipynb'.*
 

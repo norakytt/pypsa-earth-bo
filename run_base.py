@@ -13,11 +13,13 @@ scen = 'B'
 # To make other profiles, you need to build a new cutout - follow the PyPSA-Earth configuration documentation.
 # Change the scenario folder if changing the scenario, f.ex.:
 #scen_folder = 'test_runs/base_2018'
+# Delete files in networks/ and run snakemake -j 1 solve_all_networks with the sensivity analysis setup before running this file.
 
 # TO RUN WITH A DIFFERENT DISCOUNT RATE
 # In config.py, change the value of the variable "discount_rate" to the desired rate.
 # Change the resources/costs.csv file accordingly.
 # Change scen_folder to 'test_runs/base_<value>' (<value> format 010 or 007) to save the results in the correct folder.
+#  Delete files in networks/ and run snakemake -j 1 solve_all_networks with the sensivity analysis setup before running this file.
 
 # Import necessary libraries
 import pypsa
