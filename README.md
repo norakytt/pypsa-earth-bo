@@ -130,7 +130,7 @@ Below is a description of the main folders/files and their purpose:
   Configured folder to place results from the runs_scripts.
 
 - **paper_results/**  
-  Folder to contain the original result files from the paper, downloaded as described in Section 8.
+  Folder to contain the original result files from the paper, downloaded as described in Section 7.
 
 - **analysis_scripts/**  
   Jupyter notebooks used to reproduce all figures and tables in the paper.  
@@ -156,29 +156,17 @@ A complete run of the snakemake workflow will overwrite most of these files. Aft
 | **Custom grid topology** | Corrected substations and transmission lines; replaces incomplete OSM data. | `custom_files/custom_substations1.geojson` and `custom_files/custom_lines1.geojson` (referenced in `config.yaml`) |
 | **Power plant database** | Updated 2022 CNDC power plant list; includes solar/wind shells and extendable hydro + geothermal potentials. | `custom_files/custom_powerplants.csv` (placed in `data/`) |
 
-## 5) Prepare Before Scenario Runs
+## 5) Scenario Runs
 
 By cloning this repository, the custom files above are available.
 
 Changes to the config.yaml-file and the model compared to PyPSA-Earth v.0.3.0 should remain as in this repository.
 
-Before each scenario run, ensure that the `networks/` folder is cleared. PyPSA‑Earth regenerates all required files through the snakemake workflow.
+Before each scenario run, read the instructions on top of the run script and ensure that the `networks/` folder is cleared at the beginning of each run. PyPSA‑Earth regenerates all required files through the snakemake workflow. To generate results the run scripts need a complete network file `networks/elec_s_all_ec_lcopt_Co2L-1H.nc` (all nodes scenarios) or `networks/elec_s_4_ec_lcopt_Co2L-1H.nc` (4 nodes scenario) to run. By completing the snakemake workflow at the beginning of each run, this file should appear in the `netwoks/` folder.
 
-Then run:
-
-```bash
-snakemake -j 1 solve_all_networks
-```
-
-(The number dictates the number of CPU cores allocated for the process, alter based on availability.)
-
-## 6) Scenario Runs
-
-### 6.1 Main scenarios runs
+### 5.1 Main scenarios runs
 
 After a successful installation and configuration of PyPSA-Earth-BO, you are ready to run the different scenarios. These are ready to run, and the results will appear after the run in their respective results folders in the `test_runs` folder as described in the run scripts.
-
-To generate results the run scripts need a complete network file `networks/elec_s_all_ec_lcopt_Co2L-1H.nc` (all nodes scenarios) or `networks/elec_s_4_ec_lcopt_Co2L-1H.nc` (4 nodes scenario) to run. By completing the snakemake workflow as described in Section 5, this file should appear in the `netwoks/` folder.
 
 The table below lists all main case studies and their associated run files.
 
@@ -191,7 +179,7 @@ The table below lists all main case studies and their associated run files.
 | Gradual Cost | `run_gradual.py` |
 | Gradual Cost NZE | `run_gradual_nze.py` |
 
-### 6.2 Sensitivity Runs
+### 5.2 Sensitivity Runs
 
 The table below lists all sensitivity case studies and their associated run files.
 
@@ -220,9 +208,9 @@ The table below lists all sensitivity case studies and their associated run file
 | | | |
 | Nodes | Gradual NZE 4 nodes | `run_gradual_nze_4_nodes.py` |
 
-## 7) Analyze Results
+## 6) Analyze Results
 
-### 7.1 Full Analysis
+### 6.1 Full Analysis
 
 To analyze the results and replicate the relevant tables and figures in the paper, run all the scenarios as described above.
 
@@ -234,17 +222,17 @@ NB: *any csv-files in "figures/ are updated when you run the 'plots.ipynb'.*
 
 Then run the `plots.ipynb` notebook to generate all relevant tables and figures from the paper automatically.
 
-**If you only want to explore the existing results and reproduce the figures without rerunning the model, see Section 8.**
+**If you only want to explore the existing results and reproduce the figures without rerunning the model, see Section 7.**
 
 Remember to change the results_folder variable on the top of the 'plots.ipynb' file based on which method you choose.
 
 NB: *any plots in "figures/ are updated when you run the 'plots.ipynb'.*
 
-### 7.2 Quick Test Plot
+### 6.2 Quick Test Plot
 
 Before running the full analysis, you can verify that a scenario run was successful by using the `plots_single.ipynb` notebook to generate a single figure from one scenario. This allows you to quickly check the results and confirm everything is working properly before proceeding with the complete analysis.
 
-## 8) Exploring Results Without Running the Model
+## 7) Exploring Results Without Running the Model
 
 The full results dataset (~45 GB) is archived on Zenodo: https://doi.org/10.5281/zenodo.19056464
 
@@ -259,4 +247,4 @@ Remember to change the results_folder variable on the top of the 'plots.ipynb' f
 
 NB: *any plots in "figures/ are updated when you run the 'plots.ipynb'.*
 
-To replicate results from scratch instead, follow Sections 6–7.
+To replicate results from scratch instead, follow Section 5.
