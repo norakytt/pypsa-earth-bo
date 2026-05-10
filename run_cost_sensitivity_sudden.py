@@ -16,7 +16,28 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import subprocess
+import shutil
 import math
+
+
+def prepare_initial_network(network_path):
+    networks_dir = os.path.dirname(network_path)
+
+    if os.path.isdir(networks_dir):
+        for entry in os.scandir(networks_dir):
+            if entry.is_file() or entry.is_symlink():
+                os.remove(entry.path)
+            elif entry.is_dir():
+                shutil.rmtree(entry.path)
+
+    subprocess.run(['snakemake', '-j', '14', 'solve_all_networks', '--unlock'])
+    subprocess.run(['snakemake', '-j', '14', 'solve_all_networks'], check=True)
+
+    if not os.path.exists(network_path):
+        raise FileNotFoundError(f"Snakemake did not recreate {network_path}")
+
+
+prepare_initial_network('networks/elec_s_all_ec_lcopt_Co2L-1H.nc')
 
 # Scaling factors for demand in the new costs scenario
 scale_demand_new_costs = {
