@@ -158,6 +158,8 @@ A complete run of the snakemake workflow will overwrite most of these files. Aft
 
 ## 5) Scenario Runs
 
+**If you only want to explore the existing results and reproduce the figures without rerunning the model, see Section 7.**
+
 By cloning this repository, the custom files above are available.
 
 Changes to the config.yaml-file and the model compared to PyPSA-Earth v.0.3.0 should remain as in this repository.
@@ -221,8 +223,6 @@ Then run the respective data processing notebooks:
 NB: *any csv-files in "figures/ are updated when you run the 'plots.ipynb'.*
 
 Then run the `plots.ipynb` notebook to generate all relevant tables and figures from the paper automatically.
-
-**If you only want to explore the existing results and reproduce the figures without rerunning the model, see Section 7.**
 
 Remember to change the results_folder variable on the top of the 'plots.ipynb' file based on which method you choose.
 
