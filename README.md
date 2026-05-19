@@ -71,7 +71,13 @@ The installation and requirements are similar to those of pypsa-earth:
     .../pypsa-earth % conda env create -f envs/environment.yaml
     ```
 
-    If the above takes longer than 30 min, you might want to try mamba for faster installation:
+    If the installation takes longer than 30 minutes, make sure your conda solver is set to `libmamba`:
+
+    ```bash
+    .../pypsa-earth % conda config --set solver libmamba
+    ```
+    
+    Alternatively, you might want to try mamba for faster installation:
 
     ```bash
     (base) conda install -c conda-forge mamba
