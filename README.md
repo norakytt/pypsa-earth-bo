@@ -85,11 +85,9 @@ The installation and requirements are similar to those of pypsa-earth:
     .../pypsa-earth % mamba env create -f envs/environment.yaml
     ```
 
-    *If this environment does not work, compare the package versions with those in `envs/environment_fixed.yaml`*
+4. In step 2, three solvers are installed: HiGHs, glpk, and gurobi. For this paper, we have used gurobi. To run the optimization, one has to install the chosen solver.
 
-4. In step 2, three solvers are installed: HiGHs, glpk and gurobi. For this paper we have used gurobi. For running the optimization one has to install the chosen solver.
-
-5. To use jupyter lab (new jupyter notebooks) **continue** with the [ipython kernel installation](http://echrislynch.com/2019/02/01/adding-an-environment-to-jupyter-notebooks/) and test if your jupyter lab works:
+5. To use Jupyter Lab (new Jupyter notebooks) **continue** with the [ipython kernel installation](http://echrislynch.com/2019/02/01/adding-an-environment-to-jupyter-notebooks/) and test if your Jupyter Lab works:
 
    ```bash
    .../pypsa-earth % ipython kernel install --user --name=pypsa-earth
@@ -111,7 +109,8 @@ The installation and requirements are similar to those of pypsa-earth:
 
 ### 2.2 Tested Environment
 
-The workflows were tested on Python 3.10.13 with PyPSA‑Earth v.0.3.0 and Snakemake 7.32.4.
+- The workflows were tested on Python 3.10.13 with PyPSA‑Earth v.0.3.0 and Snakemake 7.32.4.
+- *If this environment does not work, compare the package versions with those in `envs/environment_fixed.yaml`*
 
 ## 3) Repository Structure
 
