@@ -7,10 +7,10 @@ channels:
 - conda-forge
 - bioconda
 - gurobi
+- nodefaults
 dependencies:
 - python>=3.8
 - pip
-- mamba   # esp for windows build
 
 - pypsa>=0.24, <0.25
 # - atlite>=0.2.4  # until https://github.com/PyPSA/atlite/issues/244 is not merged
@@ -64,21 +64,22 @@ dependencies:
 - hvplot
 - graphviz
 - contextily
-- graphviz
 
   # PyPSA-Eur-Sec Dependencies
 - geopy
 - tqdm
 - pytz
-- country_converter
 
   # Cloud download
 # - googledrivedownloader  # Commented until https://github.com/ndrplz/google-drive-downloader/pull/28 is merged: PR installed using pip
 
 # Default solver for tests (required for CI)
 - glpk
-- ipopt<3.13.3
+# - ipopt<3.13.3
 - gurobi
+
+- tsam>=1.1.0
+- chaospy  # lastest version only available on pip
 
 - pip:
   - git+https://github.com/davide-f/google-drive-downloader@master  # google drive with fix for virus scan
