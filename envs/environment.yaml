@@ -9,7 +9,7 @@ channels:
 - gurobi
 - nodefaults
 dependencies:
-- python>=3.8
+- python=3.10.13
 - pip
 
 - pypsa>=0.24, <0.25
